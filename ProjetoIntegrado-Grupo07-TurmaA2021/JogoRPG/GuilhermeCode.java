@@ -17,7 +17,7 @@ public class GuilhermeCode {
 	}
 
 	static String nomePersonagem() throws InterruptedException {
-		narrativa("Insira o nome do seu personagem, por gentileza: ", TimeUnit.MILLISECONDS, tempoLento);
+		narrativa("\nInsira o nome do seu personagem, por gentileza: ", TimeUnit.MILLISECONDS, tempoLento);
 		String jogador = leitor.next();
 		return jogador;
 	}
@@ -60,7 +60,7 @@ public class GuilhermeCode {
 				+ "com graus elevados, sendo assim, possibilitando a ascensão sem descensão de outros.\n"
 				+ "\nRelacionamentos entre níveis diferentes não é restrito de forma alguma, e novamente, \n"
 				+ "qualquer ato discriminatório RESULTARA NAS MAIS PESADAS CONSEQUÊNCIAS PUNITIVAS, \n"
-				+ "independentemente de seu nível." + "", TimeUnit.MILLISECONDS, tempoRapido);
+				+ "independentemente de seu nível.\n" + "", TimeUnit.MILLISECONDS, tempoRapido);
 	}
 
 	static void earlyGame02(String nomePersonagem) throws InterruptedException {
@@ -162,7 +162,7 @@ public class GuilhermeCode {
 		do {
 			narrativa("Lista de documentos acessiveis com o seu nivel:\n" + "\n[EraSustentavel]\n" + "[Verdade101}\n"
 					+ "\nCaso queira ler algum documento, basta escrever o nome dele! Caso contrario, digite sair.\n"
-					+ "", TimeUnit.MILLISECONDS, tempoRapido);
+					+ "Solicitação: ", TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "ERASUSTENTAVEL":
@@ -290,12 +290,14 @@ public class GuilhermeCode {
 				sair = true;
 				break;
 			case "SAIR":
-				narrativa("\n\nObrigado " + nomePersonagem + " por ter visitado a biblioteca da Universitária C-nac-01/3\n",
+				narrativa(
+						"\n\nObrigado " + nomePersonagem
+								+ " por ter visitado a biblioteca da Universitária C-nac-01/3\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = false;
 				break;
 			default:
-				narrativa("\n\nNão entendemos sua solicitação, por gentileza tente novamente!", TimeUnit.MILLISECONDS,
+				narrativa("\n\nNão entendemos sua solicitação, por gentileza tente novamente!\n", TimeUnit.MILLISECONDS,
 						tempoRapido);
 			}
 		} while (sair);
@@ -304,7 +306,6 @@ public class GuilhermeCode {
 	public static void main(String[] args) throws InterruptedException {
 
 		narrativa("Bem vindo ao universo da cidade de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
-		narrativa("\n", TimeUnit.MILLISECONDS, tempoRapido);
 		String nomePersonagem = nomePersonagem();
 		earlyGame01(nomePersonagem);
 		earlyGame02(nomePersonagem);
