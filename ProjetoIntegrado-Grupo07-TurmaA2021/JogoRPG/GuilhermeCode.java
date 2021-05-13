@@ -303,9 +303,8 @@ public class GuilhermeCode {
 		} while (sair);
 	}
 
-	public static void main(String[] args) throws InterruptedException {
-
-		narrativa("Bem vindo ao universo da cidade de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
+	public static void jogoCnac() throws InterruptedException {
+		narrativa("\n\nBem vindo ao universo de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
 		String nomePersonagem = nomePersonagem();
 		earlyGame01(nomePersonagem);
 		earlyGame02(nomePersonagem);
@@ -313,5 +312,93 @@ public class GuilhermeCode {
 
 		bibliotecaCnac(nomePersonagem);
 
+	}
+
+	public static void instrucoes() throws InterruptedException {
+		narrativa("\n\nAs instruções do jogo são bem simples, basta uma leitura ativa e respostas atentas. Para uma \n"
+				+ "leitura ativa, repare nos aspectos dos textos e foque na compreensão do que está sendo \n"
+				+ "transmitido, agora para respostas atentas basta inserir no console as informações requeridas.\n"
+				+ "\nAs informações requeridas, sempre estarão destacadas entre [ colchetes ], com um \n"
+				+ "espaçamento maior de cada lado.\n"
+				+ "\nPor exemplo: se no console for solicitado para digitar algo, e uma ou mais palavras, letras ou \n"
+				+ "números estiverem entre colchetes, digite a palavra, letra ou número escolhido entre colchetes\n"
+				+ "\n[ A ] – Olá\n" + "[ B ] – Tchau\n"
+				+ "\nO correto é digitar [ A ] para representar o Olá ou [ B ] para representar o Tchau. Mas não se \n"
+				+ "preocupe se errar, a questão será repetida para uma nova resposta ser inserida.\n"
+				+ "\nDigite [ OK ] para sair!\n" + "", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "OK":
+				narrativa("\n\nVocê conseguiu compreender, continue assime bom jogo!", TimeUnit.MILLISECONDS,
+						tempoLento);
+				sair = false;
+				break;
+			default:
+				narrativa("\n\nTente mais uma vez! e lembre-se, o que deve ser digitado está entre colchetes [ ]\n"
+						+ "\nDigite [ OK ] para sair!\n", TimeUnit.MILLISECONDS, tempoLento);
+				sair = true;
+				break;
+			}
+		} while (sair);
+	}
+
+	public static void creditos() throws InterruptedException {
+		narrativa("\n\nO jogo C-NAC, foi desenvolvido por Erick Barbosa Cavichioni, Guilherme Costa Manrique e \n"
+				+ "Matheus Rocha Galdino da Silva, todos estudantes do Centro Universitário Senac Santo Amaro, \n"
+				+ "cursando Tecnologia de Analise e desenvolvimento de Sistemas, iniciado no primeiro semestre \n"
+				+ "de 2021.\n"
+				+ "\nO jogo C-NAC é um projeto montado com o objetivo avaliativo para a matéria Projeto \n"
+				+ "Integrador I, ministrada pelo professor Dr. Eduardo Takeo Ueda.\n"
+				+ "\nO projeto tem como um dos objetos, testar os conhecimentos dos estudantes referentes a \n"
+				+ "qualquer matéria cursada no semestre, sendo assim, o grupo optou por escolher a matéria \n"
+				+ "Conceitos de Computação, ministrada pelo professor Stelvio Barbosa.\n"
+				+ "\nO grupo tem um agradecimento especial aos professores, por suas orientações que fizerem \n"
+				+ "esse projeto ser possível.\n" + "\nDigite [ OK ] para sair!\n", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "OK":
+				sair = false;
+				break;
+			default:
+				narrativa("\nDigite [ OK ] para sair!\n", TimeUnit.MILLISECONDS, tempoLento);
+				sair = true;
+				break;
+			}
+		} while (sair);
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+		byte resposta;
+		do {
+			narrativa("\n\nMenu de opções:\n\n" + "[ 1 ] - Jogar\n" + "[ 2 ] - Instruções\n" + "[ 3 ] - Créditos\n"
+					+ "[ 4 ] - Sair\n\n" + "Insira a opção desejada: ", TimeUnit.MILLISECONDS, tempoLento);
+			resposta = leitor.nextByte();
+		} while (resposta < 1 || resposta > 4);
+
+		boolean sair = true;
+		do {
+			switch (resposta) {
+			case 1:
+				jogoCnac();
+				sair = true;
+				break;
+			case 2:
+				instrucoes();
+				sair = true;
+				break;
+			case 3:
+				creditos();
+				sair = true;
+				break;
+			case 4:
+				narrativa("\n\nAté breve jogador!", TimeUnit.MILLISECONDS, tempoLento);
+				sair = false;
+				break;
+			}
+		} while (sair);
 	}
 }
