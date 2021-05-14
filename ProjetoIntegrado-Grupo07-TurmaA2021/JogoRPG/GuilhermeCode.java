@@ -88,10 +88,10 @@ public class GuilhermeCode {
 
 	static void earlyGame02(String nomePersonagem) throws InterruptedException {
 		narrativa("\n\nE-mail de confirmação da prova.\n" + "\nPrezado " + nomePersonagem
-				+ ", a cidade de C-nac-01 fica imensamente feliz com seu interesse no teste de cidadania!\n"
+				+ ", a cidade de C-NAC-01 fica imensamente feliz com seu interesse no teste de cidadania!\n"
 				+ "\nA data da sua prova foi marcada para o dia 10/01/2162, dez dia após o recebimento desse desse e-mail.\n"
-				+ "O local da prova, será na Av. Eng. Eusébio Stevaux, 823 – Distrito 3 – C-nac-01, unidade \n"
-				+ "Universitária C-nac-01/3. Lembrando que é apenas necessário levar seu cartão de residente, \n"
+				+ "O local da prova, será na Av. Eng. Eusébio Stevaux, 823 – Distrito 3 – C-NAC-01, unidade \n"
+				+ "universitária C-NAC-01/3. Lembrando que é apenas necessário levar seu cartão de residente, \n"
 				+ "para a verificação da sua identidade. Nossa prova será realizada através de um computador \n"
 				+ "disponível no local, onde testaremos seus conhecimentos através de 10 perguntas múltipla \n"
 				+ "escolha, referentes a Conceitos de Computação. \n"
@@ -181,6 +181,88 @@ public class GuilhermeCode {
 				break;
 			}
 		} while (sair);
+	}
+
+	static void earlyGame04() throws InterruptedException {
+		narrativa("\n\nComo mencionado na carta, após dez dias, você foi ao endereço descrito no e-mail de \n"
+				+ "confirmação da prova, e nesse endereço encontrou a unidade universitária C-NAC-01/3 pela \n"
+				+ "primeira vez em sua vida!\n"
+				+ "\nApesar de só estar visitando-a para realizar a prova de cidadania, você já podia se imaginando \n"
+				+ "andando em seus corredores como um aluno, frequentando as aulas em seus laboratórios, \n"
+				+ "utilizando a biblioteca para pesquisas e as infinitas possibilidades que viriam a partir do \n"
+				+ "conhecimento fornecido. Com isso você pensou em como as pessoas poderiam negar realizar \n"
+				+ "tal prova, sendo que os benefícios de ser um cidadão seriam muito bons para serem negados, \n"
+				+ "e que nesse caso, você só poderia frequentar aquela universidade sendo um cidadão.\n"
+				+ "\nSaindo de seu devaneio, você adentra o espaço da universidade.\n", TimeUnit.MILLISECONDS,
+				tempoRapido);
+
+	}
+
+	static void earlyGametotemEspaco01(String nomePersonagem) throws InterruptedException {
+		narrativa("informação na entrada.\n"
+				+ "\nOlhando para ele você inseri seu cartão de habitante e lê a mensagem:\n" + "\nMuito bem-vindo "
+				+ nomePersonagem + " a unidade universitária C-NAC-01/3!\n"
+				+ "\nEm nosso sistema vemos que você deve realizar sua prova de cidadania hoje, e por isso o \n"
+				+ "parabenizamos e desejamos boa sorte!!!\n"
+				+ "Para iniciar sua prova, basta ir à secretaria, onde você confirmará sua presença e realizará o \n"
+				+ "sorteio da sua sala de teste, uma vez sorteada a sala, basta se dirigir a mesma o mais breve \n"
+				+ "possível\n", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa("\nDigite:\n" + "\n[ Mapa ] – para ver um mapa de orientação da unidade.\n"
+							+ "[ Sair ] – para sair do totem e se mover pela unidade.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "MAPA":
+
+				sair = true;
+				break;
+			case "SAIR":
+
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+	}
+
+	static int earlyGameEspaco01(String nomePersonagem, int especo) throws InterruptedException {
+		narrativa("\n\nAdentrado a universidade, você observa as coisas da seguinte perspectiva:\n"
+				+ "\nVocê está em um espaço semi coberto, com o chão feito de paralelepípedo e concreto.\n"
+				+ "\nA sua direita, tem uma estação de segurança, onde você repara que os seguranças estão \n"
+				+ "observando todo o movimento que acontece no local. A atras da estação de segurança, ainda a \n"
+				+ "sua direita, um estacionamento aberto cheio de carros.\n"
+				+ "\nA sua esquerda, você observa uma carca de arbustos verdes e baixos, e vê parcialmente a um \n"
+				+ "lado do prédio da biblioteca.\n" + "\nA sua frente, você observa um totem de informações.\n"
+				+ "\nVocê pode:\n" + "\n[ Totem ] – Para visualizar o totem de informações.\n"
+				+ "[ Frente ] – Se movimentar para o próximo espaço.\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+		return especo;
+
+	}
+
+	static void jogoCnac() throws InterruptedException {
+		narrativa("\n\nBem-vindo ao universo de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
+		String nomePersonagem = nomePersonagem();
+		earlyGame01(nomePersonagem);
+		earlyGame02(nomePersonagem);
+		earlyGame03(nomePersonagem);
+		earlyGame04();
+		int espaco = 0;
+		boolean saida = true;
+		do {
+			if (espaco == 0) {
+				espaco = earlyGameEspaco01(nomePersonagem, espaco);				
+				saida = true;
+			}
+		}while (saida);		
+		
+		bibliotecaCnac(nomePersonagem);
+
 	}
 
 	static void bibliotecaCnac(String nomePersonagem) throws InterruptedException {
@@ -322,7 +404,7 @@ public class GuilhermeCode {
 			case "SAIR":
 				narrativa(
 						"\n\nObrigado " + nomePersonagem
-								+ " por ter visitado a biblioteca da Universitária C-nac-01/3\n",
+								+ " por ter visitado a biblioteca da universitária C-NAC-01/3\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = false;
 				break;
@@ -331,17 +413,6 @@ public class GuilhermeCode {
 						tempoRapido);
 			}
 		} while (sair);
-	}
-
-	static void jogoCnac() throws InterruptedException {
-		narrativa("\n\nBem vindo ao universo de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
-		String nomePersonagem = nomePersonagem();
-		earlyGame01(nomePersonagem);
-		earlyGame02(nomePersonagem);
-		earlyGame03(nomePersonagem);
-
-		bibliotecaCnac(nomePersonagem);
-
 	}
 
 	static void instrucoes() throws InterruptedException {
