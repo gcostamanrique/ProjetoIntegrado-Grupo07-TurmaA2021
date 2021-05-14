@@ -60,12 +60,35 @@ public class GuilhermeCode {
 				+ "com graus elevados, sendo assim, possibilitando a ascensão sem descensão de outros.\n"
 				+ "\nRelacionamentos entre níveis diferentes não é restrito de forma alguma, e novamente, \n"
 				+ "qualquer ato discriminatório RESULTARA NAS MAIS PESADAS CONSEQUÊNCIAS PUNITIVAS, \n"
-				+ "independentemente de seu nível.\n" + "", TimeUnit.MILLISECONDS, tempoRapido);
+				+ "independentemente de seu nível.\n" + "\n" + nomePersonagem
+				+ " você acabou de reber um e-mail oficial!\n" + "gostaria de o ler agora?\n"
+				+ "\n[ Sim ] - por gentileza!\n" + "[ Nao ] - muito obrigado!\n\n" + "", TimeUnit.MILLISECONDS,
+				tempoRapido);
+		boolean sair = true;
+		do {
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "SIM":
+				narrativa("\nVamos mostrar o e-mail agora!", TimeUnit.MILLISECONDS, tempoRapido);
+				sair = false;
+				break;
+			case "NAO":
+				narrativa("\nInfelizmente por ser um e-mail oficial não seria prudente postergar sua leitura\n"
+						+ "Vamos mostrar o e-mail agora!", TimeUnit.MILLISECONDS, tempoRapido);
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
 	}
 
 	static void earlyGame02(String nomePersonagem) throws InterruptedException {
 		narrativa("\n\nE-mail de confirmação da prova.\n" + "\nPrezado " + nomePersonagem
-				+ ", a cidade de C-nac-01 fica imensamente feliz com seu interesse no teste de \n" + "cidadania!\n"
+				+ ", a cidade de C-nac-01 fica imensamente feliz com seu interesse no teste de cidadania!\n"
 				+ "\nA data da sua prova foi marcada para o dia 10/01/2162, dez dia após o recebimento desse desse e-mail.\n"
 				+ "O local da prova, será na Av. Eng. Eusébio Stevaux, 823 – Distrito 3 – C-nac-01, unidade \n"
 				+ "Universitária C-nac-01/3. Lembrando que é apenas necessário levar seu cartão de residente, \n"
@@ -82,76 +105,82 @@ public class GuilhermeCode {
 	}
 
 	static void earlyGame03(String nomePersonagem) throws InterruptedException {
-		narrativa("\n\n" + nomePersonagem + ", gostaria de ler o texto mencionado?\n" + "[ 1 ] - Sim, por gentileza!\n"
-				+ "[ 2 ] - Não, muito obrigado!\n" + "", TimeUnit.MILLISECONDS, tempoLento);
-		int resposta;
+		narrativa("\n\n" + nomePersonagem + ", gostaria de ler o texto mencionado?\n" + "[ Sim ] - por gentileza!\n"
+				+ "[ Nao ] - muito obrigado!\n" + "", TimeUnit.MILLISECONDS, tempoLento);
+		boolean sair = true;
 		do {
-			resposta = leitor.nextInt();
-		} while (resposta < 1 || resposta > 2);
-
-		switch (resposta) {
-		case 1:
-			narrativa("\n\nA breve história da antiga era moderna e a atual era tecnológica sustentável.\n"
-					+ "\nA antiga era moderna, como nos referimos anteriormente ao ano de 2043, encontrou seu fim \n"
-					+ "por meio de falta de recursos em 2040, porem demoraram mais três anos para terminarem de \n"
-					+ "consumir os recursos estocados previamente, o que gerou uma conturbação muito mais \n"
-					+ "severa na sociedade na sociedade da época.\n"
-					+ "\nMilagrosamente após alguns anos em um estado de limbo, onde os cientistas que sobraram \n"
-					+ "faziam o que podiam, na maior velocidade que conseguiam e com os recursos disponíveis, \n"
-					+ "desenvolveram uma semente milagrosa, que se desenvolvia rápido em qualquer ambiente, e \n"
-					+ "que possuía todos os nutrientes necessários para a sobrevivência humana naquele momento. \n"
-					+ "\nA partir do ano de 2048 a nova era da humanidade emergiu, tendo a inteligência como \n"
-					+ "principal meio de desenvolvimento. Percebeu-se que apenas estimulando esse lado do \n"
-					+ "humano, seria possível manter um nível adequado de racionalidade na sociedade, evitando \n"
-					+ "uma nova catástrofe devido a abuso de poder, violência e irracionalidade.\n"
-					+ "\nCom a chegada da nova era, que é conhecida como era tecnológica sustentável, várias nações \n"
-					+ "emergiram de suas posições geográficas, como novos nomes. Em nosso caso, o país \n"
-					+ "anteriormente conhecido com Brasil, passou a ser denominado C-NAC. Para simplificar as \n"
-					+ "coisas, passamos a denominar as cidades como C-NAC- (número da cidade, de forma \n"
-					+ "crescente), uma forma pratica de definir nomes para nossas cidades. Atualmente estamos com \n"
-					+ "um total de 1175 cidades, expandindo quando possível, porem preservando nosso modo de vida\n"
-					+ "\nAgora o mais interessante, essa expansão é devido aos cidadãos existentes em nossa \n"
-					+ "sociedade, por isso solicitamos que os exames de cidadania sejam realizados de forma pontual \n"
-					+ "com a idade de 21 anos, no entanto não proibimos que seja feita antes ou depois dessa idade. \n"
-					+ "O ideal é que seja realizado quando o residente se sinta confortável, apenas mostramos um \n"
-					+ "parâmetro para que o exame não caia no esquecimento.\n"
-					+ "\nO EXAME de cidadania, tem o dever de ranquear as posições dos cidadãos, com o intuito de \n"
-					+ "aloca-los nas melhores funções que podem exercer dentro da sociedade, como mencionado \n"
-					+ "anteriormente, esse exame pode É realizado outras vezes, a pedido do cidadão, para o efeito \n"
-					+ "de ascensão ou descensão do mesmo. Os movimentos de ascensão e descensão tem o objetivo \n"
-					+ "de evitar UMA FARSA dos cidadãos, na realização de seus papeis na sociedade, isso previne \n"
-					+ "que erros sejam cometidos, e que situações constrangedoras para todos os habitantes seja \n"
-					+ "evitado. Como acontecia na antiga era com casos de corrupção e afins.\n"
-					+ "PARA CONHECER A VERDADE, tivemos que suportar muitos dos erros cometidos na antiga era \n"
-					+ "moderna, nos adaptarmos a nossa nova realidade, e esse é o principal objetivo desse exame, \n"
-					+ "verificar se o habitante está apto a ser inserido nessa nova e magnifica realidade, e em qual \n"
-					+ "posição ele pertence, sem discriminação alguma pela posição alcançada, pelo contrário, \n"
-					+ "severas punições serão dadas a aqueles que desrespeitarem isso. Em todos as unidades de \n"
-					+ "educação, damos acesso a documentos de conhecimento geral, caso não esteja lendo esse \n"
-					+ "documento na biblioteca, BASTA IR À BIBLIOTECA E PEDIR PELO DOCUMENTO: verdade101. Se \n"
-					+ "já estiver na biblioteca, retorne ao menu e selecione o documento verdade101.\n"
-					+ "\nEsse documento irá informar um pouco mais sobre os desafios que a antiga era moderna \n"
-					+ "suportou em sua sociedade, e o que estamos evitando em nossa sociedade com o estimulo do \n"
-					+ "conhecimento, e a verificação da capacidade de inteligência dos cidadãos. Infelizmente ainda \n"
-					+ "não conseguimos ter total êxito, pois uma minoria que respeitamos, tem uma opinião \n"
-					+ "contraria aos métodos que oferecemos, com isso disponibilizamos uma cidade denominada \n"
-					+ "EXODO03 para tais indivíduos viverem pacificamente, sem a nossa interferência, assim como \n"
-					+ "pedidos que não interfiram em nosso meio, o que infelizmente não vem acontecendo.\n"
-					+ "\n Com essa história em mente, pedimos que se concentre na realização de seu exame, e \n"
-					+ "desejamos todo o sucesso do para você, futuro cidadão! MAS NÃO SE ESQUEÇA, QUE \n"
-					+ "ADENTRAR nossa sociedade como cidadão, irá exigir uma capacidade mental muito forte, que \n"
-					+ "talvez não tenha vivido ainda, mas o encorajamos a ser ambicioso a ponto de conseguir êxito \n"
-					+ "em seu teste e aguardamos você na posição mais alta, ranque A. Assim como reforçamos que, \n"
-					+ "se tornando um cidadão, seu cartão de residente será substituído por um cartão de cidadão e \n"
-					+ "ESSE DOCUMENTO irá alterar os status de sua vida completamente, positivamente é claro, mas \n"
-					+ "isso PODE TER GRANDES CONSEQUÊNCIAS, então tome cuidado e não repita os erros do passado.\n"
-					+ "", TimeUnit.MILLISECONDS, tempoRapido);
-			break;
-		case 2:
-			narrativa("" + "\n\nCaso mude de ideia, basta ir a biblioteca e ler o documento: EraSustentavel\n" + "",
-					TimeUnit.MILLISECONDS, tempoRapido);
-			break;
-		}
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "SIM":
+				narrativa("\n\nA breve história da antiga era moderna e a atual era tecnológica sustentável.\n"
+						+ "\nA antiga era moderna, como nos referimos anteriormente ao ano de 2043, encontrou seu fim \n"
+						+ "por meio de falta de recursos em 2040, porem demoraram mais três anos para terminarem de \n"
+						+ "consumir os recursos estocados previamente, o que gerou uma conturbação muito mais \n"
+						+ "severa na sociedade na sociedade da época.\n"
+						+ "\nMilagrosamente após alguns anos em um estado de limbo, onde os cientistas que sobraram \n"
+						+ "faziam o que podiam, na maior velocidade que conseguiam e com os recursos disponíveis, \n"
+						+ "desenvolveram uma semente milagrosa, que se desenvolvia rápido em qualquer ambiente, e \n"
+						+ "que possuía todos os nutrientes necessários para a sobrevivência humana naquele momento. \n"
+						+ "\nA partir do ano de 2048 a nova era da humanidade emergiu, tendo a inteligência como \n"
+						+ "principal meio de desenvolvimento. Percebeu-se que apenas estimulando esse lado do \n"
+						+ "humano, seria possível manter um nível adequado de racionalidade na sociedade, evitando \n"
+						+ "uma nova catástrofe devido a abuso de poder, violência e irracionalidade.\n"
+						+ "\nCom a chegada da nova era, que é conhecida como era tecnológica sustentável, várias nações \n"
+						+ "emergiram de suas posições geográficas, como novos nomes. Em nosso caso, o país \n"
+						+ "anteriormente conhecido com Brasil, passou a ser denominado C-NAC. Para simplificar as \n"
+						+ "coisas, passamos a denominar as cidades como C-NAC- (número da cidade, de forma \n"
+						+ "crescente), uma forma pratica de definir nomes para nossas cidades. Atualmente estamos com \n"
+						+ "um total de 1175 cidades, expandindo quando possível, porem preservando nosso modo de vida\n"
+						+ "\nAgora o mais interessante, essa expansão é devido aos cidadãos existentes em nossa \n"
+						+ "sociedade, por isso solicitamos que os exames de cidadania sejam realizados de forma pontual \n"
+						+ "com a idade de 21 anos, no entanto não proibimos que seja feita antes ou depois dessa idade. \n"
+						+ "O ideal é que seja realizado quando o residente se sinta confortável, apenas mostramos um \n"
+						+ "parâmetro para que o exame não caia no esquecimento.\n"
+						+ "\nO EXAME de cidadania, tem o dever de ranquear as posições dos cidadãos, com o intuito de \n"
+						+ "aloca-los nas melhores funções que podem exercer dentro da sociedade, como mencionado \n"
+						+ "anteriormente, esse exame pode É realizado outras vezes, a pedido do cidadão, para o efeito \n"
+						+ "de ascensão ou descensão do mesmo. Os movimentos de ascensão e descensão tem o objetivo \n"
+						+ "de evitar UMA FARSA dos cidadãos, na realização de seus papeis na sociedade, isso previne \n"
+						+ "que erros sejam cometidos, e que situações constrangedoras para todos os habitantes seja \n"
+						+ "evitado. Como acontecia na antiga era com casos de corrupção e afins.\n"
+						+ "PARA CONHECER A VERDADE, tivemos que suportar muitos dos erros cometidos na antiga era \n"
+						+ "moderna, nos adaptarmos a nossa nova realidade, e esse é o principal objetivo desse exame, \n"
+						+ "verificar se o habitante está apto a ser inserido nessa nova e magnifica realidade, e em qual \n"
+						+ "posição ele pertence, sem discriminação alguma pela posição alcançada, pelo contrário, \n"
+						+ "severas punições serão dadas a aqueles que desrespeitarem isso. Em todos as unidades de \n"
+						+ "educação, damos acesso a documentos de conhecimento geral, caso não esteja lendo esse \n"
+						+ "documento na biblioteca, BASTA IR À BIBLIOTECA E PEDIR PELO DOCUMENTO: verdade101. Se \n"
+						+ "já estiver na biblioteca, retorne ao menu e selecione o documento verdade101.\n"
+						+ "\nEsse documento irá informar um pouco mais sobre os desafios que a antiga era moderna \n"
+						+ "suportou em sua sociedade, e o que estamos evitando em nossa sociedade com o estimulo do \n"
+						+ "conhecimento, e a verificação da capacidade de inteligência dos cidadãos. Infelizmente ainda \n"
+						+ "não conseguimos ter total êxito, pois uma minoria que respeitamos, tem uma opinião \n"
+						+ "contraria aos métodos que oferecemos, com isso disponibilizamos uma cidade denominada \n"
+						+ "EXODO03 para tais indivíduos viverem pacificamente, sem a nossa interferência, assim como \n"
+						+ "pedidos que não interfiram em nosso meio, o que infelizmente não vem acontecendo.\n"
+						+ "\n Com essa história em mente, pedimos que se concentre na realização de seu exame, e \n"
+						+ "desejamos todo o sucesso do para você, futuro cidadão! MAS NÃO SE ESQUEÇA, QUE \n"
+						+ "ADENTRAR nossa sociedade como cidadão, irá exigir uma capacidade mental muito forte, que \n"
+						+ "talvez não tenha vivido ainda, mas o encorajamos a ser ambicioso a ponto de conseguir êxito \n"
+						+ "em seu teste e aguardamos você na posição mais alta, ranque A. Assim como reforçamos que, \n"
+						+ "se tornando um cidadão, seu cartão de residente será substituído por um cartão de cidadão e \n"
+						+ "ESSE DOCUMENTO irá alterar os status de sua vida completamente, positivamente é claro, mas \n"
+						+ "isso PODE TER GRANDES CONSEQUÊNCIAS, então tome cuidado e não repita os erros do passado.\n"
+						+ "", TimeUnit.MILLISECONDS, tempoRapido);
+				sair = false;
+				break;
+			case "NAO":
+				narrativa("" + "\n\nCaso mude de ideia, basta ir a biblioteca e ler o documento: EraSustentavel\n" + "",
+						TimeUnit.MILLISECONDS, tempoRapido);
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
 	}
 
 	static void bibliotecaCnac(String nomePersonagem) throws InterruptedException {
@@ -160,8 +189,9 @@ public class GuilhermeCode {
 				tempoLento);
 		boolean sair = true;
 		do {
-			narrativa("\n\nLista de documentos acessiveis com o seu nivel:\n" + "\n[EraSustentavel]\n" + "[Verdade101}\n"
-					+ "\nCaso queira ler algum documento, basta escrever o nome dele! Caso contrario, digite sair.\n"
+			narrativa("\n\nLista de documentos acessiveis com o seu nivel:\n" + "\n[EraSustentavel]\n"
+					+ "[Verdade101}\n"
+					+ "\nCaso queira ler algum documento, basta escrever o nome dele! Caso contrario, digite [ sair ].\n\n"
 					+ "Solicitação: ", TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
@@ -212,7 +242,7 @@ public class GuilhermeCode {
 						+ "contraria aos métodos que oferecemos, com isso disponibilizamos uma cidade denominada \n"
 						+ "EXODO03 para tais indivíduos viverem pacificamente, sem a nossa interferência, assim como \n"
 						+ "pedidos que não interfiram em nosso meio, o que infelizmente não vem acontecendo.\n"
-						+ "\n Com essa história em mente, pedimos que se concentre na realização de seu exame, e \n"
+						+ "\nCom essa história em mente, pedimos que se concentre na realização de seu exame, e \n"
 						+ "desejamos todo o sucesso do para você, futuro cidadão! MAS NÃO SE ESQUEÇA, QUE \n"
 						+ "ADENTRAR nossa sociedade como cidadão, irá exigir uma capacidade mental muito forte, que \n"
 						+ "talvez não tenha vivido ainda, mas o encorajamos a ser ambicioso a ponto de conseguir êxito \n"
@@ -356,7 +386,7 @@ public class GuilhermeCode {
 				+ "Conceitos de Computação, ministrada pelo professor Stelvio Barbosa.\n"
 				+ "\nO grupo tem um agradecimento especial aos professores, por suas orientações que fizerem \n"
 				+ "esse projeto ser possível.\n" + "\nDigite [ OK ] para sair!\n", TimeUnit.MILLISECONDS, tempoRapido);
-		boolean sair = true;		
+		boolean sair = true;
 		do {
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
@@ -372,15 +402,15 @@ public class GuilhermeCode {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		
+
 		boolean sair = true;
-		do {			
+		do {
 			byte resposta;
 			do {
 				narrativa("\n\nMenu de opções:\n\n" + "[ 1 ] - Jogar\n" + "[ 2 ] - Instruções\n" + "[ 3 ] - Créditos\n"
 						+ "[ 4 ] - Sair\n\n" + "Insira a opção desejada: ", TimeUnit.MILLISECONDS, tempoLento);
 				resposta = leitor.nextByte();
-			} while (resposta < 1 || resposta > 4);			
+			} while (resposta < 1 || resposta > 4);
 			switch (resposta) {
 			case 1:
 				jogoCnac();
