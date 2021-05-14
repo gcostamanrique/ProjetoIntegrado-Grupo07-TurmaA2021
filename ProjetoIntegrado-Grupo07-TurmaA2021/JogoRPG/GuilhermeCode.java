@@ -7,7 +7,7 @@ public class GuilhermeCode {
 
 	static Scanner leitor = new Scanner(System.in);
 
-	static int tempoRapido = 40, tempoLento = 100;
+	static int tempoRapido = 1, tempoLento = 1;
 
 	static void narrativa(String mensagem, TimeUnit unit, long tempoMensagem) throws InterruptedException {
 		for (char caractere : mensagem.toCharArray()) {
@@ -160,7 +160,7 @@ public class GuilhermeCode {
 				tempoLento);
 		boolean sair = true;
 		do {
-			narrativa("Lista de documentos acessiveis com o seu nivel:\n" + "\n[EraSustentavel]\n" + "[Verdade101}\n"
+			narrativa("\n\nLista de documentos acessiveis com o seu nivel:\n" + "\n[EraSustentavel]\n" + "[Verdade101}\n"
 					+ "\nCaso queira ler algum documento, basta escrever o nome dele! Caso contrario, digite sair.\n"
 					+ "Solicitação: ", TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
@@ -303,7 +303,7 @@ public class GuilhermeCode {
 		} while (sair);
 	}
 
-	public static void jogoCnac() throws InterruptedException {
+	static void jogoCnac() throws InterruptedException {
 		narrativa("\n\nBem vindo ao universo de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
 		String nomePersonagem = nomePersonagem();
 		earlyGame01(nomePersonagem);
@@ -314,7 +314,7 @@ public class GuilhermeCode {
 
 	}
 
-	public static void instrucoes() throws InterruptedException {
+	static void instrucoes() throws InterruptedException {
 		narrativa("\n\nAs instruções do jogo são bem simples, basta uma leitura ativa e respostas atentas. Para uma \n"
 				+ "leitura ativa, repare nos aspectos dos textos e foque na compreensão do que está sendo \n"
 				+ "transmitido, agora para respostas atentas basta inserir no console as informações requeridas.\n"
@@ -331,20 +331,20 @@ public class GuilhermeCode {
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "OK":
-				narrativa("\n\nVocê conseguiu compreender, continue assime bom jogo!", TimeUnit.MILLISECONDS,
+				narrativa("\nVocê conseguiu compreender, continue assim e bom jogo!", TimeUnit.MILLISECONDS,
 						tempoLento);
 				sair = false;
 				break;
 			default:
 				narrativa("\n\nTente mais uma vez! e lembre-se, o que deve ser digitado está entre colchetes [ ]\n"
-						+ "\nDigite [ OK ] para sair!\n", TimeUnit.MILLISECONDS, tempoLento);
+						+ "Digite [ OK ] para sair!\n", TimeUnit.MILLISECONDS, tempoLento);
 				sair = true;
 				break;
 			}
 		} while (sair);
 	}
 
-	public static void creditos() throws InterruptedException {
+	static void creditos() throws InterruptedException {
 		narrativa("\n\nO jogo C-NAC, foi desenvolvido por Erick Barbosa Cavichioni, Guilherme Costa Manrique e \n"
 				+ "Matheus Rocha Galdino da Silva, todos estudantes do Centro Universitário Senac Santo Amaro, \n"
 				+ "cursando Tecnologia de Analise e desenvolvimento de Sistemas, iniciado no primeiro semestre \n"
@@ -356,7 +356,7 @@ public class GuilhermeCode {
 				+ "Conceitos de Computação, ministrada pelo professor Stelvio Barbosa.\n"
 				+ "\nO grupo tem um agradecimento especial aos professores, por suas orientações que fizerem \n"
 				+ "esse projeto ser possível.\n" + "\nDigite [ OK ] para sair!\n", TimeUnit.MILLISECONDS, tempoRapido);
-		boolean sair = true;
+		boolean sair = true;		
 		do {
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
@@ -372,15 +372,15 @@ public class GuilhermeCode {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		byte resposta;
-		do {
-			narrativa("\n\nMenu de opções:\n\n" + "[ 1 ] - Jogar\n" + "[ 2 ] - Instruções\n" + "[ 3 ] - Créditos\n"
-					+ "[ 4 ] - Sair\n\n" + "Insira a opção desejada: ", TimeUnit.MILLISECONDS, tempoLento);
-			resposta = leitor.nextByte();
-		} while (resposta < 1 || resposta > 4);
-
+		
 		boolean sair = true;
-		do {
+		do {			
+			byte resposta;
+			do {
+				narrativa("\n\nMenu de opções:\n\n" + "[ 1 ] - Jogar\n" + "[ 2 ] - Instruções\n" + "[ 3 ] - Créditos\n"
+						+ "[ 4 ] - Sair\n\n" + "Insira a opção desejada: ", TimeUnit.MILLISECONDS, tempoLento);
+				resposta = leitor.nextByte();
+			} while (resposta < 1 || resposta > 4);			
 			switch (resposta) {
 			case 1:
 				jogoCnac();
