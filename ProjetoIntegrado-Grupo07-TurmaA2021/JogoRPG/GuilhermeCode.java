@@ -199,8 +199,7 @@ public class GuilhermeCode {
 	}
 
 	static void earlyGameTotemEspaco01(String nomePersonagem) throws InterruptedException {
-		narrativa("informação na entrada.\n"
-				+ "\nOlhando para ele você inseri seu cartão de habitante e lê a mensagem:\n" + "\nMuito bem-vindo "
+		narrativa("\n\nOlhando para ele você inseri seu cartão de habitante e lê a mensagem:\n" + "\nMuito bem-vindo "
 				+ nomePersonagem + " a unidade universitária C-NAC-01/3!\n"
 				+ "\nEm nosso sistema vemos que você deve realizar sua prova de cidadania hoje, e por isso o \n"
 				+ "parabenizamos e desejamos boa sorte!!!\n"
@@ -210,19 +209,29 @@ public class GuilhermeCode {
 		boolean sair = true;
 		do {
 			narrativa(
-					"\nDigite:\n" + "\n[ Mapa ] – para ver um mapa de orientação da unidade.\n"
+					"\n\nDigite:\n" + "\n[ Mapa ] – para ver um mapa de orientação da unidade.\n"
 							+ "[ Sair ] – para sair do totem e se mover pela unidade.\n\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "MAPA":
-				narrativa("\nMapa\n\n", TimeUnit.MILLISECONDS,
+				narrativa("\n\nMapa\n"
+						+ "\nA unidade C-NAC-01/3 é composta por alguns “espaços”, você atualmente está no espaço 01. \n"
+						+ "A descrição dos “espaços” é a seguinte:\n"
+						+ "\nEspaço 01: entrada (esse espaço fornece acesso ao espaço 02).\n"
+						+ "Espaço 02: monumento a sustentabilidade (esse espaço fornece acesso aos espaços 03 e 05).\n"
+						+ "Espaço 03: jardim e biblioteca (esse espaço fornece acesso ao espaço 04).\n"
+						+ "Espaço 04: biblioteca.\n"
+						+ "Espaço 05: jardim, entrada para o prédio principal e secretaria (esse espaço fornece acesso ao espaço 06 e 07).\n"
+						+ "Espaço 06: secretaria.\n"
+						+ "Espaço 07: prédio principal (esse espaço fornece acesso aos espaços 08 e 09).\n"
+						+ "Espaço 08: salas de exame de 1 a 5.\n" + "Espaço 09: salas de exame de 6 a 10.\n"
+						+ "Atualmente você possui acesso a somente esses espaços.\n", TimeUnit.MILLISECONDS,
 						tempoRapido);
 				sair = true;
 				break;
 			case "SAIR":
-				narrativa("\nQualquer dúvida, retorne aqui!\n\n", TimeUnit.MILLISECONDS,
-						tempoRapido);
+				narrativa("\nQualquer dúvida, retorne aqui!\n\n", TimeUnit.MILLISECONDS, tempoRapido);
 				sair = false;
 				break;
 			default:
@@ -250,13 +259,15 @@ public class GuilhermeCode {
 							+ "[ Frente ] – Se movimentar para o próximo espaço.\n\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
-			switch(resposta.toUpperCase()) {
+			switch (resposta.toUpperCase()) {
 			case "TOTEM":
-				earlyGameTotemEspaco01 (nomePersonagem);
+				earlyGameTotemEspaco01(nomePersonagem);
 				sair = true;
+				break;
 			case "FRENTE":
 				espaco = 2;
 				sair = false;
+				break;
 			default:
 				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
 						tempoRapido);
@@ -267,33 +278,96 @@ public class GuilhermeCode {
 		return espaco;
 	}
 
-	static void jogoCnac() throws InterruptedException {
-		narrativa("\n\nBem-vindo ao universo de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
-		String nomePersonagem = nomePersonagem();
-		earlyGame01(nomePersonagem);
-		earlyGame02(nomePersonagem);
-		earlyGame03(nomePersonagem);
-		earlyGame04();
-		int espaco = 1;
-		boolean saida = true;
+	static int earlyGameEspaco02(String nomePersonagem, int espaco) throws InterruptedException {
+		narrativa("\n\nAdentrado o espaço 02, você observa as coisas da seguinte perspectiva:\n"
+				+ "\nVocê está em um espaço semi coberto, com o chão feito de paralelepípedo e concreto.\n"
+				+ "\nA sua direita, você ainda observa o estacionamento aberto creio de carros a uma certa \n"
+				+ "distância, porem o que chama a atenção, é uma arvore imensa rodeada por bancos e que é \n"
+				+ "descrita como um dos monumentos da era tecnológica sustentável. A imponência dessa arvore \n"
+				+ "faz refletir sobre como a natureza é de fundamental importância ao planeta, principalmente \n"
+				+ "após o início da era.\n"
+				+ "\nA sua esquerda, você observa totalmente a lateral do prédio da biblioteca, e um caminho que \n"
+				+ "ao que parece fornece acesso a sua entrada.\n"
+				+ "\nA sua frente, um corredor lateral ao prédio principal, com um jardim a sua direita.\n"
+				+ "\nA suas costas, você observa o espaço 01.\n", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
 		do {
-			if (espaco == 1) {
-				espaco = earlyGameEspaco01(nomePersonagem, espaco);
-				saida = true;
+			narrativa(
+					"\nVocê pode:\n" + "\n[ Direita ] – Se movimentando para o espaço a direita.\n"
+							+ "[ Frente ] – Se movimentando para o espaço a frente.\n"
+							+ "[ Retornar ] – Se movimentando para o espaço 01.\n" + "\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "DIREITA":
+				espaco = 3;
+				sair = false;
+				break;
+			case "FRENTE":
+				espaco = 5;
+				sair = false;
+				break;
+			case "RETORNAR":
+				espaco = 1;
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
 			}
-		} while (saida);
+		} while (sair);
+		return espaco;
+	}
 
-		bibliotecaCnac(nomePersonagem);
-
+	static int earlyGameEspaco03(String nomePersonagem, int espaco) throws InterruptedException {
+		narrativa("\n\nAdentrado o espaço 03, você observa as coisas da seguinte perspectiva:\n"
+				+ "\nVocê está em um espaço semi coberto, com o chão feito de paralelepípedo e concreto.\n"
+				+ "\nA sua direita, você observa um jardim que possui um caminho feito de pequenas rochas \n"
+				+ "acinzentadas, diversos bancos de descanso, alguns ocupados por estudantes e alguns vazios. \n"
+				+ "No centro do jardim, tem uma fonte baixa com a representação da semente que proporcionou \n"
+				+ "todo o desenvolvimento da nova era tecnológica sustentável, e que também virou um símbolo \n"
+				+ "de esperança.\n"
+				+ "\nA sua esquerda, você observa em parte à frente da biblioteca, feita totalmente de vidro \n"
+				+ "azulado e uma entrada com duas portas automáticas e o logo do C-NAC-01/3.\n"
+				+ "\nA sua frente, continua a área semi coberta até o fim do jardim desse lado do campus.\n"
+				+ "\nA suas costas, você observa o espaço 02.\n", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa(
+					"\nVocê pode:\n" + "\n[ Esquerda ] – E entrar na biblioteca.\n"
+							+ "[ Retornar ] – Se movimentando para o espaço 02.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "ESQUERDA":
+				espaco = 4;
+				sair = false;
+				break;
+			case "RETORNAR":
+				espaco = 2;
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return espaco;
 	}
 
 	static void bibliotecaCnac(String nomePersonagem) throws InterruptedException {
 
-		narrativa("\n\nBem vindo " + nomePersonagem + " a biblioteca Universitária C-nac-01/3\n", TimeUnit.MILLISECONDS,
-				tempoLento);
+		narrativa(
+				"\n\nAo escolher um computador, você inseri seu cartão de habitante e aparece do monitor\n"
+						+ "\nBem vindo " + nomePersonagem + " a biblioteca Universitária C-NAC-01/3\n",
+				TimeUnit.MILLISECONDS, tempoLento);
 		boolean sair = true;
 		do {
-			narrativa("\n\nLista de documentos acessiveis com o seu nivel:\n" + "\n[EraSustentavel]\n"
+			narrativa("\n\nLista de documentos acessiveis com o seu acesso:\n" + "\n[EraSustentavel]\n"
 					+ "[Verdade101}\n"
 					+ "\nCaso queira ler algum documento, basta escrever o nome dele! Caso contrario, digite [ sair ].\n\n"
 					+ "Solicitação: ", TimeUnit.MILLISECONDS, tempoRapido);
@@ -431,10 +505,242 @@ public class GuilhermeCode {
 				sair = false;
 				break;
 			default:
-				narrativa("\n\nNão entendemos sua solicitação, por gentileza tente novamente!\n", TimeUnit.MILLISECONDS,
-						tempoRapido);
+				narrativa("\n\nNão entendemos sua solicitação, por gentileza, tente novamente!\n",
+						TimeUnit.MILLISECONDS, tempoRapido);
 			}
 		} while (sair);
+	}
+
+	static int earlyGameEspaco04(String nomePersonagem, int espaco) throws InterruptedException {
+		narrativa("\n\nAdentrado o espaço 04, você observa as coisas da seguinte perspectiva:\n"
+				+ "\nVocê está em um prédio com as janelas feitas de vidro azulado e o chão de mármore polido, \n"
+				+ "um ambiente impecavelmente limpo.\n"
+				+ "\nA sua direita, uma área de computadores para acesso comum. Entretanto com os \n"
+				+ "computadores mais sofisticados que você nem poderia imaginar.\n"
+				+ "\nA sua esquerda um ambiente com esculturas em mármore representativas dos antepassados, \n"
+				+ "peças tecnológicas antigas, como câmeras fotográficas, os primeiros equipamentos sonoros, \n"
+				+ "computadores em suas formas primitivas entre outras peças, assim como vestuários das \n"
+				+ "épocas mais remotas, com seus tecidos um pouco desbotados, entretanto perfeitamente \n"
+				+ "arrumados, os chapéus mais engraçados, porem na época representativos de poder e \n"
+				+ "autoridade. Assim como outras diversas peças, que quando você observou não consegui \n"
+				+ "distinguir sua origem.\n"
+				+ "\nA frente uma área de segurança para a entrada da biblioteca em si, porém não sendo \n"
+				+ "estudante, não teríamos acesso a ela, já que os livros foram praticamente extintos com o fim \n"
+				+ "da antiga era moderna, os que restaram, são cuidadosamente preservados e com acesso \n"
+				+ "restrito, porem todos são digitalizados e disponibilizados ao público em geral.\n",
+				TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa(
+					"\nVocê pode:\n" + "\n[ Direita ] – Utilizar um dos computadores disponíveis.\n"
+							+ "[ Retornar ] – Se movimentando para o espaço 03.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "DIREITA":
+				bibliotecaCnac(nomePersonagem);
+				sair = true;
+				;
+				break;
+			case "RETORNAR":
+				espaco = 3;
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return espaco;
+	}
+
+	static int earlyGameEspaco05(String nomePersonagem, int espaco) throws InterruptedException {
+		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "xxx":
+				espaco = 0;
+				sair = false;
+				break;
+			case "yyy":
+				espaco = 0;
+				sair = false;
+				break;
+			case "zzz":
+				espaco = 0;
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return espaco;
+	}
+
+	static int earlyGameEspaco06(String nomePersonagem, int espaco) throws InterruptedException {
+		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "xxx":
+				espaco = 0;
+				sair = false;
+				break;
+			case "yyy":
+				espaco = 0;
+				sair = false;
+				break;
+			case "zzz":
+				espaco = 0;
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return espaco;
+	}
+
+	static int earlyGameEspaco07(String nomePersonagem, int espaco) throws InterruptedException {
+		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "xxx":
+				espaco = 0;
+				sair = false;
+				break;
+			case "yyy":
+				espaco = 0;
+				sair = false;
+				break;
+			case "zzz":
+				espaco = 0;
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return espaco;
+	}
+
+	static int earlyGameEspaco08(String nomePersonagem, int espaco) throws InterruptedException {
+		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "xxx":
+				espaco = 0;
+				sair = false;
+				break;
+			case "yyy":
+				espaco = 0;
+				sair = false;
+				break;
+			case "zzz":
+				espaco = 0;
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return espaco;
+	}
+
+	static int earlyGameEspaco09(String nomePersonagem, int espaco) throws InterruptedException {
+		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "xxx":
+				espaco = 0;
+				sair = false;
+				break;
+			case "yyy":
+				espaco = 0;
+				sair = false;
+				break;
+			case "zzz":
+				espaco = 0;
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return espaco;
+	}
+
+	static void jogoCnac() throws InterruptedException {
+		narrativa("\n\nBem-vindo ao universo de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
+		String nomePersonagem = nomePersonagem();
+		earlyGame01(nomePersonagem);
+		earlyGame02(nomePersonagem);
+		earlyGame03(nomePersonagem);
+		earlyGame04();
+		int espaco = 1;
+		boolean saida = true;
+		do {
+			if (espaco == 1) {
+				espaco = earlyGameEspaco01(nomePersonagem, espaco);
+				saida = true;
+			} else if (espaco == 2) {
+				espaco = earlyGameEspaco02(nomePersonagem, espaco);
+				saida = true;
+			} else if (espaco == 3) {
+				espaco = earlyGameEspaco03(nomePersonagem, espaco);
+				saida = true;
+			} else if (espaco == 4) {
+				espaco = earlyGameEspaco04(nomePersonagem, espaco);
+				saida = true;
+			} else if (espaco == 5) {
+				espaco = earlyGameEspaco05(nomePersonagem, espaco);
+				saida = true;
+			} else if (espaco == 6) {
+				espaco = earlyGameEspaco06(nomePersonagem, espaco);
+				saida = true;
+			} else if (espaco == 7) {
+				espaco = earlyGameEspaco07(nomePersonagem, espaco);
+				saida = true;
+			} else if (espaco == 8) {
+				espaco = earlyGameEspaco08(nomePersonagem, espaco);
+				saida = true;
+			} else if (espaco == 9) {
+				espaco = earlyGameEspaco09(nomePersonagem, espaco);
+				saida = true;
+			}
+		} while (saida);
+
 	}
 
 	static void instrucoes() throws InterruptedException {
