@@ -7,7 +7,7 @@ public class GuilhermeCode {
 
 	static Scanner leitor = new Scanner(System.in);
 
-	static int tempoRapido = 1, tempoLento = 1;
+	static int tempoRapido = 0, tempoLento = 0;
 
 	static void narrativa(String mensagem, TimeUnit unit, long tempoMensagem) throws InterruptedException {
 		for (char caractere : mensagem.toCharArray()) {
@@ -198,7 +198,7 @@ public class GuilhermeCode {
 
 	}
 
-	static void earlyGametotemEspaco01(String nomePersonagem) throws InterruptedException {
+	static void earlyGameTotemEspaco01(String nomePersonagem) throws InterruptedException {
 		narrativa("informação na entrada.\n"
 				+ "\nOlhando para ele você inseri seu cartão de habitante e lê a mensagem:\n" + "\nMuito bem-vindo "
 				+ nomePersonagem + " a unidade universitária C-NAC-01/3!\n"
@@ -209,17 +209,20 @@ public class GuilhermeCode {
 				+ "possível\n", TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
-			narrativa("\nDigite:\n" + "\n[ Mapa ] – para ver um mapa de orientação da unidade.\n"
+			narrativa(
+					"\nDigite:\n" + "\n[ Mapa ] – para ver um mapa de orientação da unidade.\n"
 							+ "[ Sair ] – para sair do totem e se mover pela unidade.\n\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "MAPA":
-
+				narrativa("\nMapa\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
 				sair = true;
 				break;
 			case "SAIR":
-
+				narrativa("\nQualquer dúvida, retorne aqui!\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
 				sair = false;
 				break;
 			default:
@@ -231,18 +234,37 @@ public class GuilhermeCode {
 		} while (sair);
 	}
 
-	static int earlyGameEspaco01(String nomePersonagem, int especo) throws InterruptedException {
+	static int earlyGameEspaco01(String nomePersonagem, int espaco) throws InterruptedException {
 		narrativa("\n\nAdentrado a universidade, você observa as coisas da seguinte perspectiva:\n"
 				+ "\nVocê está em um espaço semi coberto, com o chão feito de paralelepípedo e concreto.\n"
 				+ "\nA sua direita, tem uma estação de segurança, onde você repara que os seguranças estão \n"
 				+ "observando todo o movimento que acontece no local. A atras da estação de segurança, ainda a \n"
 				+ "sua direita, um estacionamento aberto cheio de carros.\n"
 				+ "\nA sua esquerda, você observa uma carca de arbustos verdes e baixos, e vê parcialmente a um \n"
-				+ "lado do prédio da biblioteca.\n" + "\nA sua frente, você observa um totem de informações.\n"
-				+ "\nVocê pode:\n" + "\n[ Totem ] – Para visualizar o totem de informações.\n"
-				+ "[ Frente ] – Se movimentar para o próximo espaço.\n\n", TimeUnit.MILLISECONDS, tempoRapido);
-		return especo;
-
+				+ "lado do prédio da biblioteca.\n" + "\nA sua frente, você observa um totem de informações.\n",
+				TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa(
+					"\nVocê pode:\n" + "\n[ Totem ] – Para visualizar o totem de informações.\n"
+							+ "[ Frente ] – Se movimentar para o próximo espaço.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch(resposta.toUpperCase()) {
+			case "TOTEM":
+				earlyGameTotemEspaco01 (nomePersonagem);
+				sair = true;
+			case "FRENTE":
+				espaco = 2;
+				sair = false;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return espaco;
 	}
 
 	static void jogoCnac() throws InterruptedException {
@@ -252,15 +274,15 @@ public class GuilhermeCode {
 		earlyGame02(nomePersonagem);
 		earlyGame03(nomePersonagem);
 		earlyGame04();
-		int espaco = 0;
+		int espaco = 1;
 		boolean saida = true;
 		do {
-			if (espaco == 0) {
-				espaco = earlyGameEspaco01(nomePersonagem, espaco);				
+			if (espaco == 1) {
+				espaco = earlyGameEspaco01(nomePersonagem, espaco);
 				saida = true;
 			}
-		}while (saida);		
-		
+		} while (saida);
+
 		bibliotecaCnac(nomePersonagem);
 
 	}
