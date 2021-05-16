@@ -1,33 +1,29 @@
 package JogoRPG;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class GuilhermeTeste {
 
 	public static Scanner leitor = new Scanner(System.in);
-
+		
 	public static void main(String[] args) throws InterruptedException {
-
-		boolean sair = true;
-		do {
-			System.out.print("\nDigite:\n" + "\n[ Mapa ] – para ver um mapa de orientação da unidade.\n"
-					+ "[ Sair ] – para sair do totem e se mover pela unidade.\n\n");
-			String resposta = leitor.next();
-			switch (resposta.toUpperCase()) {
-			case "MAPA":
-
-				sair = true;
-				break;
-			case "SAIR":
-				System.out.print("\nQualquer dúvida, retorne aqui!\n\n");
-				sair = false;
-				break;
-			default:
-				System.out.print("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n");
-				sair = true;
-				break;
-			}
-		} while (sair);
+		
+		int salaExame;
+		ArrayList<Integer> vetorSalaExame = new ArrayList<Integer>();
+		for (int i = 1; i <= 10; i++) {
+			vetorSalaExame.add(i);
+		}
+		Collections.shuffle(vetorSalaExame);
+		Collections.shuffle(vetorSalaExame);
+		Collections.shuffle(vetorSalaExame);
+		Collections.shuffle(vetorSalaExame);
+		Collections.shuffle(vetorSalaExame);
+		
+		for (int i = 0; i < 10; i++) {
+			System.out.println(vetorSalaExame.get(i));
+		}
 	}
 }

@@ -1,5 +1,7 @@
 package JogoRPG;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -94,7 +96,8 @@ public class GuilhermeCode {
 				+ "universitária C-NAC-01/3. Lembrando que é apenas necessário levar seu cartão de residente, \n"
 				+ "para a verificação da sua identidade. Nossa prova será realizada através de um computador \n"
 				+ "disponível no local, onde testaremos seus conhecimentos através de 10 perguntas múltipla \n"
-				+ "escolha, referentes a Conceitos de Computação. \n"
+				+ "escolha, referentes a Conceitos de Computação. Chegando na unidade informada, basta ir a secretaria,\n"
+				+ "confirmar sua presença e solicitar uma sala para o exame. \n"
 				+ "\nGostaríamos de agradecer novamente seu interesse em nossa prova de cidadania, tendo em \n"
 				+ "vista que não estamos tendo uma taxa de aceitação de 100% de nossos residentes para tal \n"
 				+ "prova, mesmo os benefícios de se tornar um cidadão serem muito superiores aos benefícios de \n"
@@ -224,11 +227,9 @@ public class GuilhermeCode {
 						+ "Espaço 04: biblioteca.\n"
 						+ "Espaço 05: jardim, entrada para o prédio principal (esse espaço fornece acesso ao espaço 06).\n"
 						+ "Espaço 06: hall de entrada do prédio principal da universidade (esse espaço fornece acesso \n"
-						+ "aos espaços 07 e 08).\n"
-						+ "Espaço 07: secretaria.\n"
+						+ "aos espaços 07 e 08).\n" + "Espaço 07: secretaria.\n"
 						+ "Espaço 08: prédio principal (esse espaço fornece acesso aos espaços 09 e 10).\n"
-						+ "Espaço 09: salas de exame de 1 a 5.\n"
-						+ "Espaço 10: salas de exame de 6 a 10. \n"
+						+ "Espaço 09: salas de exame de 1 a 5.\n" + "Espaço 10: salas de exame de 6 a 10. \n"
 						+ "Atualmente você possui acesso a somente esses espaços.\n", TimeUnit.MILLISECONDS,
 						tempoRapido);
 				sair = true;
@@ -335,8 +336,8 @@ public class GuilhermeCode {
 				+ "\nA sua esquerda, você observa em parte à frente da biblioteca, feita totalmente de vidro \n"
 				+ "azulado e uma entrada com duas portas automáticas e o logo do C-NAC-01/3.\n"
 				+ "\nA sua frente, continua a área semi coberta até o fim do jardim desse lado do campus, e o fim"
-				+ "do predio da biblioteca.\n"
-				+ "\nA suas costas, você observa o espaço 02.\n", TimeUnit.MILLISECONDS, tempoRapido);
+				+ "do predio da biblioteca.\n" + "\nA suas costas, você observa o espaço 02.\n", TimeUnit.MILLISECONDS,
+				tempoRapido);
 		boolean sair = true;
 		do {
 			narrativa(
@@ -572,21 +573,22 @@ public class GuilhermeCode {
 				+ "todo o desenvolvimento da nova era tecnológica sustentável, e que também virou um símbolo \n"
 				+ "de esperança.\n"
 				+ "\nA sua frente, continua a área semi coberta até o fim do jardim desse lado do campus, e o fim \n"
-				+ "do prédio principal.\n"
-				+ "\nA suas costas, você observa o espaço 02.\n", TimeUnit.MILLISECONDS, tempoRapido);
+				+ "do prédio principal.\n" + "\nA suas costas, você observa o espaço 02.\n", TimeUnit.MILLISECONDS,
+				tempoRapido);
 		boolean sair = true;
 		do {
-			narrativa("\nVocê pode:\n"
-					+ "\n[ Direita ] – E entrar no hall do prédio da universidade.\n"
-					+ "[ Retornar ] – Se movimentando para o espaço 02.\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+			narrativa(
+					"\nVocê pode:\n" + "\n[ Direita ] – E entrar no hall do prédio da universidade.\n"
+							+ "[ Retornar ] – Se movimentando para o espaço 02.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "DIREITA":
-				espaco = 0;
+				espaco = 6;
 				sair = false;
 				break;
 			case "RETORNAR":
-				espaco = 0;
+				espaco = 2;
 				sair = false;
 				break;
 			default:
@@ -608,15 +610,15 @@ public class GuilhermeCode {
 				+ "monumento a era tecnológica sustentável, a arvore que se encontra no espaço 2.\n"
 				+ "\nA sua frente três portas automáticas com vidro negro, dando o acesso ao prédio principal da \n"
 				+ "universidade, nas portas contam a escrita do nome do prédio “Acadêmico I”, seguido pelo logo \n"
-				+ "da universidade.\n"
-				+ "\nA suas costas, você observa o espaço 05.\n"
-				+ "", TimeUnit.MILLISECONDS, tempoRapido);
+				+ "da universidade.\n" + "\nA suas costas, você observa o espaço 05.\n" + "", TimeUnit.MILLISECONDS,
+				tempoRapido);
 		boolean sair = true;
 		do {
-			narrativa("\nVocê pode:\n"
-					+ "\n[ Direita ] – E entrar na secretaria do prédio.\n"
-					+ "[ Frente ] – E entrar no prédio Acadêmico I.\n"
-					+ "[ Retornar ] – Se movimentando para o espaço 05.\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+			narrativa(
+					"\nVocê pode:\n" + "\n[ Direita ] – E entrar na secretaria do prédio.\n"
+							+ "[ Frente ] – E entrar no prédio Acadêmico I.\n"
+							+ "[ Retornar ] – Se movimentando para o espaço 05.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "DIREITA":
@@ -642,22 +644,30 @@ public class GuilhermeCode {
 	}
 
 	static int earlyGameEspaco07(String nomePersonagem, int espaco) throws InterruptedException {
-		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+		narrativa("\n\nAdentrado o espaço 07, você observa as coisas da seguinte perspectiva:\n"
+				+ "\nVocê está em uma sala com o chão de mármore polido e um ambiente impecavelmente limpo. \n"
+				+ "\nA sua direita, você observa grandes janelas de vidro negro, onde você consegue ver \n"
+				+ "nitidamente o lado de fora do campus, e uma serie de mesas alinhada, separadas e indicadas \n"
+				+ "por números, assim como atendentes conversando com outros estudantes.\n"
+				+ "\nA sua esquerda, você observa em partes, mesmo cenário que na direita, uma serie de mesas \n"
+				+ "alinhada, separadas e indicadas por números, assim como atendentes conversando com \n"
+				+ "outros estudantes.\n"
+				+ "\nA sua frente, você observa um equipamento que lhe fornece senhas, e após esse \n"
+				+ "equipamento, diversas poltronas alinhadas no meio da sala, com seus assentos virados tanto \n"
+				+ "para o lado direito quanto para o lado esquerdo.\n"
+				+ "\nA suas costas, você obesa a porta de vidro negro fechada.\n", TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
-			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			narrativa("\nVocê pode:\n" + "\n[ Pegar ] – uma senha e esperar sua vez de ser atendido.\n"
+					+ "[ Retornar ] – Se movimentando para o espaço 06.", TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
-			case "xxx":
-				espaco = 0;
+			case "PEGAR":
+				espaco = 6;
 				sair = false;
 				break;
-			case "yyy":
-				espaco = 0;
-				sair = false;
-				break;
-			case "zzz":
-				espaco = 0;
+			case "RETORNAR":
+				espaco = 6;
 				sair = false;
 				break;
 			default:
@@ -671,22 +681,31 @@ public class GuilhermeCode {
 	}
 
 	static int earlyGameEspaco08(String nomePersonagem, int espaco) throws InterruptedException {
-		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+		narrativa("\n\nAdentrado o espaço 08, você observa as coisas da seguinte perspectiva:\n"
+				+ "\nVocê está em um corredor com paredes brancas, um chão de mármore polido e um ambiente \n"
+				+ "impecavelmente limpo.\n" + "\nA sua direita, você observa salas com os números de 1 a 5.\n"
+				+ "\nA sua esquerda, você observa salas com os números de 6 a 10\n"
+				+ "\nA suas costas você observa, as postas automáticas já fechadas, de onde veio do espaço 6.\n",
+				TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
-			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			narrativa(
+					"\nVocê pode:\n" + "\n[ Direita ] – para ir as salas de 1 a 5.\n"
+							+ "[ Esquerda ] - para ir as salas de 6 a 10\n"
+							+ "[ Retornar ] – se movimentando para o espaço 06.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
-			case "xxx":
-				espaco = 0;
+			case "DIREITA":
+				espaco = 9;
 				sair = false;
 				break;
-			case "yyy":
-				espaco = 0;
+			case "ESQUERDA":
+				espaco = 10;
 				sair = false;
 				break;
-			case "zzz":
-				espaco = 0;
+			case "RETORNAR":
+				espaco = 8;
 				sair = false;
 				break;
 			default:
@@ -699,23 +718,106 @@ public class GuilhermeCode {
 		return espaco;
 	}
 
-	static int earlyGameEspaco09(String nomePersonagem, int espaco) throws InterruptedException {
-		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+	static int earlyGameEspaco09(String nomePersonagem, int espaco, int salaExame) throws InterruptedException {
+		narrativa("\n\nAdentrado o espaço 09, você observa as coisas da seguinte perspectiva:\n"
+				+ "\nVocê está em um corredor com paredes brancas, um chão de mármore polido e um ambiente \n"
+				+ "impecavelmente limpo.\n"
+				+ "\nA sua direita, você observa uma parede branca com algumas obras expositivas que ao que \n"
+				+ "indica, foi deito pelos estudantes da universidade.\n"
+				+ "\nA sua esquerda, você observa 5 salas, numeradas de 1 a 5.\n"
+				+ "\nA sua frente, você vê uma escada que leva ao andar superior, porém é uma área restrita aos \n"
+				+ "estudantes \n" + "\nA suas costas você observa o espaço 8.\n", TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
-			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			narrativa(
+					"\nVocê pode:\n" + "\n[ 1 ] – entrar na sala 01.\n" + "[ 2 ] – entrar na sala 02.\n"
+							+ "[ 3 ] – entrar na sala 03.\n" + "[ 4 ] – entrar na sala 04.\n"
+							+ "[ 5 ] – entrar na sala 05.\n" + "[ Retornar ] – se movimentando para o espaço 06.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
-			case "xxx":
-				espaco = 0;
-				sair = false;
+			case "1":
+				if (salaExame == 1) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 9;
+					sair = true;
+				}
 				break;
-			case "yyy":
-				espaco = 0;
-				sair = false;
+			case "2":
+				if (salaExame == 2) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 9;
+					sair = true;
+				}
 				break;
-			case "zzz":
-				espaco = 0;
+			case "3":
+				if (salaExame == 3) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 9;
+					sair = true;
+				}
+				break;
+			case "4":
+				if (salaExame == 4) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 9;
+					sair = true;
+				}
+				break;
+			case "5":
+				if (salaExame == 5) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 9;
+					sair = true;
+				}
+				break;
+			case "RETORNAR":
+				espaco = 8;
 				sair = false;
 				break;
 			default:
@@ -727,24 +829,106 @@ public class GuilhermeCode {
 		} while (sair);
 		return espaco;
 	}
-	
-	static int earlyGameEspaco10(String nomePersonagem, int espaco) throws InterruptedException {
-		narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+
+	static int earlyGameEspaco10(String nomePersonagem, int espaco, int salaExame) throws InterruptedException {
+		narrativa("\n\nAdentrado o espaço 09, você observa as coisas da seguinte perspectiva:\n"
+				+ "\nVocê está em um corredor com paredes brancas, um chão de mármore polido e um ambiente \n"
+				+ "impecavelmente limpo.\n" + "\nA sua direita, você observa 5 salas, numeradas de 6 a 10.\n"
+				+ "\nA sua esquerda, você observa uma parede branca com algumas obras expositivas que ao que \n"
+				+ "indica, foi deito pelos estudantes da universidade.\n"
+				+ "\nA sua frente, você vê uma escada que leva ao andar superior, porém é uma área restrita aos \n"
+				+ "estudantes \n" + "\nA suas costas você observa o espaço 8.\n", TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
-			narrativa("", TimeUnit.MILLISECONDS, tempoRapido);
+			narrativa(
+					"\nVocê pode:\n" + "\n[ 6 ] – entrar na sala 06.\n" + "[ 7 ] – entrar na sala 07.\n"
+							+ "[ 8 ] – entrar na sala 08.\n" + "[ 9 ] – entrar na sala 09.\n"
+							+ "[ 10 ] – entrar na sala 10.\n" + "[ Retornar ] – se movimentando para o espaço 06.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
-			case "xxx":
-				espaco = 0;
-				sair = false;
+			case "6":
+				if (salaExame == 6) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 10;
+					sair = true;
+				}
 				break;
-			case "yyy":
-				espaco = 0;
-				sair = false;
+			case "7":
+				if (salaExame == 7) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 10;
+					sair = true;
+				}
 				break;
-			case "zzz":
-				espaco = 0;
+			case "8":
+				if (salaExame == 8) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 10;
+					sair = true;
+				}
+				break;
+			case "9":
+				if (salaExame == 9) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 10;
+					sair = true;
+				}
+				break;
+			case "10":
+				if (salaExame == 10) {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 11;
+					sair = false;
+				} else {
+					narrativa(
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
+									+ "Sala trancada, procure pela sala correta!",
+							TimeUnit.MILLISECONDS, tempoLento);
+					espaco = 10;
+					sair = true;
+				}
+				break;
+			case "RETORNAR":
+				espaco = 8;
 				sair = false;
 				break;
 			default:
@@ -755,16 +939,58 @@ public class GuilhermeCode {
 			}
 		} while (sair);
 		return espaco;
+	}
+
+	static int definicaoSalaExame(String nomePersonagem, int salaExame) throws InterruptedException {
+		ArrayList<Integer> vetorSalaExame = new ArrayList<Integer>();
+		for (int i = 1; i <= 10; i++) {
+			vetorSalaExame.add(i);
+		}
+		Collections.shuffle(vetorSalaExame);
+		Collections.shuffle(vetorSalaExame);
+		Collections.shuffle(vetorSalaExame);
+		Collections.shuffle(vetorSalaExame);
+		Collections.shuffle(vetorSalaExame);
+		salaExame = vetorSalaExame.get(0);
+		narrativa("\n\nApós esperar alguns minutos em uma das poltronas, sua senha é chamada.\n"
+				+ "Ao chegar no atendente, ele se identifica como Guilherme e solicita seu cartão de habitante ou \n"
+				+ "cidadão.\n" + "\nApós entregar o cartão de habitante, ele o leu no sistema e responde:\n"
+				+ "\n“Vejo que o/a senhor(a) " + nomePersonagem + ", veio realizar o exame de cidadania.”\n"
+				+ "Você concordando, fala um pouco mais:\n"
+				+ "\n“Isso mesmo, fui informado de vir a secretaria para confirmar minha presença e solicitar uma \n"
+				+ "sala para o exame.”\n" + "Guilherme responde:\n" + "\n“Sem problemas!”\n"
+				+ "Após alguns poucos comandos que ele inseriu no sistema ele responde.\n" + "\n“O/a senhor(a) "
+				+ nomePersonagem + ", já está com sua presença confirmada! Agora basta ir à sala \n" + salaExame
+				+ " e realizar seu exame! Desejamos boa sorte e sucesso!!!”\n"
+				+ "Após receber o numero da sala, você agradece, se levanta e sai da secretaria.",
+				TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa("\n[ Ok ] - para sair\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "OK":
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
+		return salaExame;
 	}
 
 	static void jogoCnac() throws InterruptedException {
+		int espaco = 1;
+		int salaExame = 0;
 		narrativa("\n\nBem-vindo ao universo de C-NAC!\n", TimeUnit.MILLISECONDS, tempoRapido);
 		String nomePersonagem = nomePersonagem();
 		earlyGame01(nomePersonagem);
 		earlyGame02(nomePersonagem);
 		earlyGame03(nomePersonagem);
 		earlyGame04();
-		int espaco = 1;
 		boolean saida = true;
 		do {
 			if (espaco == 1) {
@@ -787,16 +1013,19 @@ public class GuilhermeCode {
 				saida = true;
 			} else if (espaco == 7) {
 				espaco = earlyGameEspaco07(nomePersonagem, espaco);
+				salaExame = definicaoSalaExame(nomePersonagem, salaExame);
 				saida = true;
 			} else if (espaco == 8) {
 				espaco = earlyGameEspaco08(nomePersonagem, espaco);
 				saida = true;
 			} else if (espaco == 9) {
-				espaco = earlyGameEspaco09(nomePersonagem, espaco);
+				espaco = earlyGameEspaco09(nomePersonagem, espaco, salaExame);
 				saida = true;
 			} else if (espaco == 10) {
-				espaco = earlyGameEspaco09(nomePersonagem, espaco);
+				espaco = earlyGameEspaco10(nomePersonagem, espaco, salaExame);
 				saida = true;
+			} else if (espaco == 11) {
+				saida = false;
 			}
 		} while (saida);
 
