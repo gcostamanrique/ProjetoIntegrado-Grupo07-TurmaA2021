@@ -1,6 +1,8 @@
 package JogoRPG;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class MatheusCode {
@@ -11,15 +13,22 @@ public class MatheusCode {
 		String resposta;
 		float acertou = 0;
 
+		Collections.shuffle(alternativas);
+		Collections.shuffle(alternativas);
+		Collections.shuffle(alternativas);
+
 		System.out.println(pergunta);
-		for (String alternativa : alternativas) {
-			System.out.println(alternativa);
+		for (int i = 0; i < alternativas.size(); i++) {
+			System.out.println((i + 1) + ". " + alternativas.get(i));
+
 		}
-
 		resposta = leitor.next();
-		resposta = resposta.toLowerCase();
+		resposta = resposta.toUpperCase();
 
-		if (resposta.equals(alternativaCorreta)) {
+		int posicaoAlternativa = (alternativas.indexOf(alternativaCorreta) + 1);
+		System.out.println(posicaoAlternativa);
+
+		if ((resposta.equals(alternativaCorreta)) || resposta.equals(Integer.toString(posicaoAlternativa))) {
 			System.out.println("Alternativa correta");
 			acertou = 1;
 		} else {
@@ -35,34 +44,16 @@ public class MatheusCode {
 		ArrayList<String> alternativas = new ArrayList<String>();
 
 		pergunta = "Qual valor hexadecimal que convertido para octagonal fica igual a 247?";
-		a = "a) A7";
-		b = "b) A4";
-		c = "c) A3";
-		d = "d) B1";
-		e = "e) BF";
-		alternativas.add(a);
-		alternativas.add(b);
-		alternativas.add(c);
-		alternativas.add(d);
-		alternativas.add(e);
 
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "a");
+		alternativas.addAll(Arrays.asList("A7", "A4", "A3", "B1", "BF"));
+
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "A7");
 
 		alternativas.clear();
-
 		pergunta = "Qual valor decimal que convertido para binario fica igual a 0100?";
-		a = "a) 1";
-		b = "b) 2";
-		c = "c) 3";
-		d = "d) 4";
-		e = "e) 5";
-		alternativas.add(a);
-		alternativas.add(b);
-		alternativas.add(c);
-		alternativas.add(d);
-		alternativas.add(e);
+		alternativas.addAll(Arrays.asList("1", "2", "3", "4", "5"));
 
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "d");
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "4");
 
 		alternativas.clear();
 
@@ -78,7 +69,7 @@ public class MatheusCode {
 		alternativas.add(d);
 		alternativas.add(e);
 
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "b");
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "1111");
 
 		System.out.printf("Você teve um aproveitamento de %.0f%% no teste", ((pontuacao / 3) * 100));
 		leitor.close();

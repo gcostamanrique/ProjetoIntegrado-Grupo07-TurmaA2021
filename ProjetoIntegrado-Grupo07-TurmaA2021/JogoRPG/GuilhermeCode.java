@@ -57,13 +57,13 @@ public class GuilhermeCode {
 				+ "\nTais regras existentes, jamais serão corrompidas ou manipuladas, pois as consequências de tais \n"
 				+ "atos seria catastrófica a nossa sociedade, sendo assim, muito improvável que após sua \n"
 				+ "tentativa de ascensão, demoraremos um ano a buscar um candidato a descensão.\n"
-				+ "\nOuto jeito possível de ascensão sem ocorrer a descensão de outro cidadão, é a expansão de \n"
+				+ "\nOutro jeito possível de ascensão sem ocorrer a descensão de outro cidadão, é a expansão de \n"
 				+ "nossa sociedade, a formação de novas cidades requer um aumento no número de cidadãos \n"
 				+ "com graus elevados, sendo assim, possibilitando a ascensão sem descensão de outros.\n"
 				+ "\nRelacionamentos entre níveis diferentes não é restrito de forma alguma, e novamente, \n"
 				+ "qualquer ato discriminatório RESULTARA NAS MAIS PESADAS CONSEQUÊNCIAS PUNITIVAS, \n"
 				+ "independentemente de seu nível.\n" + "\n" + nomePersonagem
-				+ " você acabou de reber um e-mail oficial!\n" + "gostaria de o ler agora?\n"
+				+ " você acabou de receber um e-mail oficial!\n" + "gostaria de o ler agora?\n"
 				+ "\n[ Sim ] - por gentileza!\n" + "[ Nao ] - muito obrigado!\n\n" + "", TimeUnit.MILLISECONDS,
 				tempoRapido);
 		boolean sair = true;
