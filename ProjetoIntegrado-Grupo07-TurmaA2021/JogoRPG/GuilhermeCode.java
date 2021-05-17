@@ -198,7 +198,6 @@ public class GuilhermeCode {
 				+ "e que nesse caso, você só poderia frequentar aquela universidade sendo um cidadão.\n"
 				+ "\nSaindo de seu devaneio, você adentra o espaço da universidade.\n", TimeUnit.MILLISECONDS,
 				tempoRapido);
-
 	}
 
 	static void earlyGameTotemEspaco01(String nomePersonagem) throws InterruptedException {
@@ -365,7 +364,6 @@ public class GuilhermeCode {
 	}
 
 	static void bibliotecaCnac(String nomePersonagem) throws InterruptedException {
-
 		narrativa(
 				"\n\nAo escolher um computador, você inseri seu cartão de habitante e aparece do monitor\n"
 						+ "\nBem-vindo " + nomePersonagem + " a biblioteca Universitária C-NAC-01/3\n",
@@ -1237,7 +1235,6 @@ public class GuilhermeCode {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-
 		boolean sair = true;
 		do {
 			byte resposta;
