@@ -53,7 +53,7 @@ public class MatheusCode {
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "4");
 		alternativas.clear();
 
-				System.out.printf("Você teve um aproveitamento de %.0f%% no teste", ((pontuacao / 3) * 100));
+				System.out.printf("Você acertou %.0f no teste", pontuacao);
 		leitor.close();
 
 	}
