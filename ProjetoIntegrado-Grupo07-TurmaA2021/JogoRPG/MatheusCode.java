@@ -19,16 +19,16 @@ public class MatheusCode {
 
 		System.out.println(pergunta);
 		for (int i = 0; i < alternativas.size(); i++) {
-			System.out.println("[ " + (char)(i + 65) + " ] " + alternativas.get(i));
+			System.out.println("[ " + (char) (i + 65) + " ] " + alternativas.get(i));
 
 		}
-		
+
 		resposta = leitor.next();
 		resposta = resposta.toUpperCase();
-		
+
 		int posicaoAlternativa = (alternativas.indexOf(alternativaCorreta));
-		char letraAlternativa = ((char)(posicaoAlternativa + 65));
-		
+		char letraAlternativa = ((char) (posicaoAlternativa + 65));
+
 		if ((resposta.equals(alternativaCorreta)) || resposta.equals(String.valueOf(letraAlternativa))) {
 			System.out.println("Alternativa correta");
 			acertou = 1;
@@ -48,13 +48,13 @@ public class MatheusCode {
 		alternativas.addAll(Arrays.asList("A7", "A4", "A3", "B1", "BF"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "A7");
 		alternativas.clear();
-		
+
 		pergunta = "Qual valor decimal que convertido para binario fica igual a 0100?";
 		alternativas.addAll(Arrays.asList("1", "2", "3", "4", "5"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "4");
 		alternativas.clear();
 
-				System.out.printf("Você acertou %.0f no teste", pontuacao);
+		System.out.printf("Você acertou %.0f no teste", pontuacao);
 		leitor.close();
 
 	}
