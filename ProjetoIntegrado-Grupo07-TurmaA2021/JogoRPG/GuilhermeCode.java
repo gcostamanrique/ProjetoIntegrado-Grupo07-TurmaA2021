@@ -982,6 +982,71 @@ public class GuilhermeCode {
 		return salaExame;
 	}
 
+	static int questaoExame(int pontuacaoPersonagem, String enunciadoQuestao, String alternativa01,
+			String alternativa02, String alternativa03, String alternativa04, String alternativa05,
+			String respostaQuestao) throws InterruptedException {
+
+		String alternativa = "X";
+		do {
+			ArrayList<String> pergunta = new ArrayList<String>();
+			pergunta.add(alternativa01);
+			pergunta.add(alternativa02);
+			pergunta.add(alternativa03);
+			pergunta.add(alternativa04);
+			pergunta.add(alternativa05);
+			Collections.shuffle(pergunta);
+			Collections.shuffle(pergunta);
+			Collections.shuffle(pergunta);
+
+			narrativa("\n\n" + enunciadoQuestao + "\n[ A ] " + pergunta.get(0) + "\n[ B ] " + pergunta.get(1) + "\n[ C ] "
+					+ pergunta.get(2) + "\n[ D ] " + pergunta.get(3) + "\n[ E ] " + pergunta.get(4)
+					+ "\nEscolha uma alternativa: ", TimeUnit.MILLISECONDS, tempoLento);
+
+			String alternativaA = pergunta.get(0);
+			String alternativaB = pergunta.get(1);
+			String alternativaC = pergunta.get(2);
+			String alternativaD = pergunta.get(3);
+			String alternativaE = pergunta.get(4);
+
+			alternativa = leitor.next();
+			alternativa = alternativa.toUpperCase();
+			
+			
+
+			switch (alternativa) {
+			case "A":
+				if (alternativaA == respostaQuestao) {
+					pontuacaoPersonagem++;
+				}
+				break;
+			case "B":
+				if (alternativaB == respostaQuestao) {
+					pontuacaoPersonagem++;
+				}
+				break;
+			case "C":
+				if (alternativaC == respostaQuestao) {
+					pontuacaoPersonagem++;
+				}
+				break;
+			case "D":
+				if (alternativaD == respostaQuestao) {
+					pontuacaoPersonagem++;
+				}
+				break;
+			case "E":
+				if (alternativaE == respostaQuestao) {
+					pontuacaoPersonagem++;
+				}
+				break;
+			}
+
+		} while (alternativa == "A" || alternativa == "B" || alternativa == "C" || alternativa == "D"
+				|| alternativa == "E");
+
+		return pontuacaoPersonagem;
+	}
+
 	static void jogoCnac() throws InterruptedException {
 		int espaco = 1;
 		int salaExame = 0;
@@ -1028,6 +1093,110 @@ public class GuilhermeCode {
 				saida = false;
 			}
 		} while (saida);
+
+		int pontuacaoPersonagem = 0;
+		String enunciadoQuestao, alternativa01, alternativa02, alternativa03, alternativa04, alternativa05,
+				respostaQuestao;
+
+		enunciadoQuestao = "Questão 01: Qual valor hexadecimal que convertido para octagonal fica igual a 247?";
+		alternativa01 = "A7";
+		alternativa02 = "A4";
+		alternativa03 = "A3";
+		alternativa04 = "B1";
+		alternativa05 = "BF";
+		respostaQuestao = "A7";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+
+		enunciadoQuestao = "Questão 02: Qual valor decimal que convertido para binario fica igual a 0100?";
+		alternativa01 = "1";
+		alternativa02 = "2";
+		alternativa03 = "3";
+		alternativa04 = "4";
+		alternativa05 = "5";
+		respostaQuestao = "4";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+		
+		enunciadoQuestao = "Questão 03: Qual valor decimal que convertido para binario fica igual a 15?";
+		alternativa01 = "0101";
+		alternativa02 = "1111";
+		alternativa03 = "1000";
+		alternativa04 = "0100";
+		alternativa05 = "1110";
+		respostaQuestao = "1111";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+		
+		enunciadoQuestao = "Questão 04: ";
+		alternativa01 = "";
+		alternativa02 = "";
+		alternativa03 = "";
+		alternativa04 = "";
+		alternativa05 = "";
+		respostaQuestao = "";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+		
+		enunciadoQuestao = "Questão 05: ";
+		alternativa01 = "";
+		alternativa02 = "";
+		alternativa03 = "";
+		alternativa04 = "";
+		alternativa05 = "";
+		respostaQuestao = "";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+		
+		enunciadoQuestao = "Questão 06: ";
+		alternativa01 = "";
+		alternativa02 = "";
+		alternativa03 = "";
+		alternativa04 = "";
+		alternativa05 = "";
+		respostaQuestao = "";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+		
+		enunciadoQuestao = "Questão 07: ";
+		alternativa01 = "";
+		alternativa02 = "";
+		alternativa03 = "";
+		alternativa04 = "";
+		alternativa05 = "";
+		respostaQuestao = "";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+		
+		enunciadoQuestao = "Questão 08: ";
+		alternativa01 = "";
+		alternativa02 = "";
+		alternativa03 = "";
+		alternativa04 = "";
+		alternativa05 = "";
+		respostaQuestao = "";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+		
+		enunciadoQuestao = "Questão 09: ";
+		alternativa01 = "";
+		alternativa02 = "";
+		alternativa03 = "";
+		alternativa04 = "";
+		alternativa05 = "";
+		respostaQuestao = "";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
+		
+		enunciadoQuestao = "Questão 10: ";
+		alternativa01 = "";
+		alternativa02 = "";
+		alternativa03 = "";
+		alternativa04 = "";
+		alternativa05 = "";
+		respostaQuestao = "";
+		pontuacaoPersonagem = questaoExame(pontuacaoPersonagem, enunciadoQuestao, alternativa01, alternativa02,
+				alternativa03, alternativa04, alternativa05, respostaQuestao);
 
 	}
 
