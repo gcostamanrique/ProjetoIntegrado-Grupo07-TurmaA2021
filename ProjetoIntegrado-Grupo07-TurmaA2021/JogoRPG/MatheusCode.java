@@ -19,12 +19,13 @@ public class MatheusCode {
 
 		System.out.println(pergunta);
 		for (int i = 0; i < alternativas.size(); i++) {
-			System.out.println((char)(i + 65) + ". " + alternativas.get(i));
+			System.out.println("[ " + (char)(i + 65) + " ] " + alternativas.get(i));
 
 		}
+		
 		resposta = leitor.next();
 		resposta = resposta.toUpperCase();
-
+		
 		int posicaoAlternativa = (alternativas.indexOf(alternativaCorreta));
 		char letraAlternativa = ((char)(posicaoAlternativa + 65));
 		
