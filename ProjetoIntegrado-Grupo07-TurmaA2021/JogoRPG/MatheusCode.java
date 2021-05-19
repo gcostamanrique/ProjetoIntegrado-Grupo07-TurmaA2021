@@ -65,22 +65,22 @@ public class MatheusCode {
 
 		float pontuacao = 0;
 		String pergunta;
-		ArrayList<String> alternativas = new ArrayList<String>();
+		ArrayList<String> listaAlternativas = new ArrayList<String>();
 
 		pergunta = "Qual valor hexadecimal que convertido para octagonal fica igual a 247?";
-		alternativas.addAll(Arrays.asList("A7", "A4", "A3", "B1", "BF"));
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, alternativas.get(0));
-		alternativas.clear();
+		listaAlternativas.addAll(Arrays.asList("A7", "A4", "A3", "B1", "BF"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "A7");
+		listaAlternativas.clear();
 
 		pergunta = "Qual valor decimal que convertido para binario fica igual a 0100?";
-		alternativas.addAll(Arrays.asList("1", "2", "3", "4", "5"));
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "4");
-		alternativas.clear();
+		listaAlternativas.addAll(Arrays.asList("1", "2", "3", "4", "5"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "4");
+		listaAlternativas.clear();
 
 		pergunta = "Qual valor decimal que convertido para binario fica igual a 1000?";
-		alternativas.addAll(Arrays.asList("8", "1", "3", "4"));
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, alternativas, "8");
-		alternativas.clear();
+		listaAlternativas.addAll(Arrays.asList("8", "1", "3", "4"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+		listaAlternativas.clear();
 
 		System.out.printf("Você acertou %.0f questão(ões) no teste", pontuacao);
 		leitor.close();
