@@ -108,10 +108,16 @@ public class MatheusCode {
 		listaAlternativas.addAll(Arrays.asList());
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
 		listaAlternativas.clear();
-		
-		pergunta = "Questão 09 - ";
-		listaAlternativas.addAll(Arrays.asList());
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+	
+		pergunta = "Questão 09 - Segundo o mapa de karnaugh apresentado, quantas quadras ele possui para ser o mais otimizado possivel?\n"
+				+ " \n C e D / A e B\n"
+				+ "        | 00 | 01 | 11 | 10 |\n"
+				+ "     00 |  1 |  0 |  0 |  1 |\n"
+				+ "     01 |  0 |  1 |  1 |  0 |\n"
+				+ "     11 |  0 |  1 |  1 |  1 |\n"
+				+ "     10 |  1 |  0 |  1 |  1 |\n\n";	
+				listaAlternativas.addAll(Arrays.asList("Uma quadra", "Duas quadras", "Três quadras","Quatro quadras", "Nenhuma quadra"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três quadras");
 		listaAlternativas.clear();
 
 		System.out.printf("Você acertou %.0f questão(ões) no teste", pontuacao);
