@@ -105,12 +105,12 @@ public class MatheusCode {
 		listaAlternativas.clear();
 		
 		pergunta = "Questão 08 - Segundo o mapa de karnaugh apresentado, quantas unidades, pares, quadras ou oitavas, esse mapa apresenta para ser o mais otimizado possivel?\\n\"\r\n"
-				+ "	+ \" \\n C e D / A e B\\n\"\r\n"
-				+ "	+ \"        | 00 | 01 | 11 | 10 |\\n\"\r\n"
-				+ "	+ \"     00 |  1 |  0 |  0 |  1 |\\n\"\r\n"
-				+ "	+ \"     01 |  0 |  1 |  1 |  0 |\\n\"\r\n"
-				+ "	+ \"     11 |  0 |  1 |  1 |  1 |\\n\"\r\n"
-				+ "	+ \"     10 |  1 |  0 |  0 |  0 |\\n\\n";
+				+ " \\n C e D / A e B\\n\"\r\n"
+				+ "        | 00 | 01 | 11 | 10 |\n"
+				+ "     00 |  1 |  0 |  0 |  1 |\n"
+				+ "     01 |  0 |  1 |  1 |  0 |\n"
+				+ "     11 |  0 |  1 |  1 |  1 |\n"
+				+ "     10 |  1 |  0 |  0 |  0 |\n";
 		listaAlternativas.addAll(Arrays.asList("Três pares e uma quadra", "Uma unidade, dois pares e uma quadra", "Duas quadras", "Uma unidade e quatro pares", "Uma unidade e duas quadras"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três pares e uma quadra");
 		listaAlternativas.clear();
