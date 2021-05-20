@@ -1,6 +1,7 @@
 package JogoRPG;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -980,60 +981,60 @@ public class GuilhermeCode {
 		return salaExame;
 	}
 
-	static int questaoExame(int pontuacaoPersonagem, String enunciadoQuestao, String alternativa01,
-			String alternativa02, String alternativa03, String alternativa04, String alternativa05,
-			String respostaQuestao) throws InterruptedException {
-		String alternativa = "X";
+	public static float questaoMultiplaEscolha(String pergunta, ArrayList<String> listaAlternativas,
+			String alternativaCorreta) throws InterruptedException {
+		String resposta;
+		float acertou = 0;
+		int posicaoAlternativa;
+		char letraAlternativa;
+		ArrayList<String> listaLetrasAlternativas = new ArrayList<String>();
+
+		System.out.println("\n");
+		
+		Collections.shuffle(listaAlternativas);
+		Collections.shuffle(listaAlternativas);
+		Collections.shuffle(listaAlternativas);
+
 		do {
-			ArrayList<String> pergunta = new ArrayList<String>();
-			pergunta.add(alternativa01);
-			pergunta.add(alternativa02);
-			pergunta.add(alternativa03);
-			pergunta.add(alternativa04);
-			pergunta.add(alternativa05);
-			Collections.shuffle(pergunta);
-			Collections.shuffle(pergunta);
-			Collections.shuffle(pergunta);
-			narrativa("\n\n" + enunciadoQuestao + "\n[ A ] " + pergunta.get(0) + "\n[ B ] " + pergunta.get(1)
-					+ "\n[ C ] " + pergunta.get(2) + "\n[ D ] " + pergunta.get(3) + "\n[ E ] " + pergunta.get(4)
-					+ "\nEscolha uma alternativa: ", TimeUnit.MILLISECONDS, tempoLento);
-			String alternativaA = pergunta.get(0);
-			String alternativaB = pergunta.get(1);
-			String alternativaC = pergunta.get(2);
-			String alternativaD = pergunta.get(3);
-			String alternativaE = pergunta.get(4);
-			alternativa = leitor.next();
-			alternativa = alternativa.toUpperCase();
-			switch (alternativa) {
-			case "A":
-				if (alternativaA == respostaQuestao) {
-					pontuacaoPersonagem++;
-				}
-				break;
-			case "B":
-				if (alternativaB == respostaQuestao) {
-					pontuacaoPersonagem++;
-				}
-				break;
-			case "C":
-				if (alternativaC == respostaQuestao) {
-					pontuacaoPersonagem++;
-				}
-				break;
-			case "D":
-				if (alternativaD == respostaQuestao) {
-					pontuacaoPersonagem++;
-				}
-				break;
-			case "E":
-				if (alternativaE == respostaQuestao) {
-					pontuacaoPersonagem++;
-				}
-				break;
+			narrativa(pergunta,TimeUnit.MILLISECONDS,tempoRapido);
+			System.out.println("\n");
+
+			for (int i = 0; i < listaAlternativas.size(); i++) {
+
+				listaLetrasAlternativas.add(Character.toString((char) (i + 65))); // interando a lista de alternativas
+				System.out.println("[ " + listaLetrasAlternativas.get(i) + " ] " + listaAlternativas.get(i)); // apresentando
+																												// elas
+																												// junto
+																												// com
+																												// as
+																												// questões
 			}
-		} while (alternativa == "A" || alternativa == "B" || alternativa == "C" || alternativa == "D"
-				|| alternativa == "E");
-		return pontuacaoPersonagem;
+
+			resposta = leitor.next().toUpperCase();
+
+			posicaoAlternativa = (listaAlternativas.indexOf(alternativaCorreta));
+			letraAlternativa = ((char) (posicaoAlternativa + 65));
+
+		} while (naoPertence(resposta, listaLetrasAlternativas)); // enquanto ele não pertencer a lista de
+																	// alternativas ele não vai sair do looping
+
+		if (resposta.equals(String.valueOf(letraAlternativa))) {
+			narrativa("Alternativa correta",TimeUnit.MILLISECONDS,tempoLento);
+			acertou++;
+		} else {
+			narrativa("Alternativa errada",TimeUnit.MILLISECONDS,tempoLento);
+		}
+
+		return acertou;
+	}
+
+	public static boolean naoPertence(String valor, ArrayList<String> vetor) {
+		for (String item : vetor) {
+			if (item.equals(valor)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	static void jogoCnac() throws InterruptedException {
@@ -1083,6 +1084,73 @@ public class GuilhermeCode {
 			}
 		} while (saida);
 		
+		float pontuacao = 0;
+		String pergunta;
+		ArrayList<String> listaAlternativas = new ArrayList<String>();
+		
+		
+		
+		pergunta = "Questão 01 - Qual valor hexadecimal que convertido para octagonal fica igual a 247?";
+		listaAlternativas.addAll(Arrays.asList("A7", "A4", "A3", "B1", "BF"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "A7");
+		listaAlternativas.clear();
+
+		pergunta = "Questão 02 - Qual valor decimal que convertido para binario fica igual a 0100?";
+		listaAlternativas.addAll(Arrays.asList("1", "2", "3", "4", "5"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "4");
+		listaAlternativas.clear();
+
+		pergunta = "Questão 03 - Qual valor decimal que convertido para binario fica igual a 1000?";
+		listaAlternativas.addAll(Arrays.asList("8", "1", "3", "4", "5"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 04 - Em uma expressão lógica, quais sinais representam uma porta OR, AND e"
+				+ "NOT, respectivamente?";
+		listaAlternativas.addAll(Arrays.asList("Mais, ponto e barra", "Ponto, mais e barra", "Barra, ponto e mais", "Ponto, barra e mais", "Nenhum desses sinais"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Mais, ponto e barra");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 05 - No momento de extrair a tabela verdade de uma expressão lógica, que contem parênteses, AND e OR,"
+				+ "por exemplo: A . B . C + A . (C + A + D), qual a ordem mais aprorpiada de resolução da expressão respectivamente?";
+		listaAlternativas.addAll(Arrays.asList("Parênteses, AND e OR", "Parênteses, OR e AND", "Iniciando com os termos da direita para a esquerda", "AND, OR e Parênteses", "OR, AND e Parênteses"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Parênteses, AND e OR");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 06 - ";
+		listaAlternativas.addAll(Arrays.asList());
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 07 - ";
+		listaAlternativas.addAll(Arrays.asList());
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 08 - Segundo o mapa de karnaugh apresentado, quantas unidades, pares, quadras ou oitavas, esse mapa apresenta para ser o mais otimizado possivel?\\n\"\r\n"
+				+ " \\n C e D / A e B\\n\"\r\n"
+				+ "        | 00 | 01 | 11 | 10 |\n"
+				+ "     00 |  1 |  0 |  0 |  1 |\n"
+				+ "     01 |  0 |  1 |  1 |  0 |\n"
+				+ "     11 |  0 |  1 |  1 |  1 |\n"
+				+ "     10 |  1 |  0 |  0 |  0 |\n";
+		listaAlternativas.addAll(Arrays.asList("Três pares e uma quadra", "Uma unidade, dois pares e uma quadra", "Duas quadras", "Uma unidade e quatro pares", "Uma unidade e duas quadras"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três pares e uma quadra");
+		listaAlternativas.clear();
+	
+		pergunta = "Questão 09 - Segundo o mapa de karnaugh apresentado, quantas quadras ele possui para ser o mais otimizado possivel?\n"
+				+ " \n C e D / A e B\n"
+				+ "        | 00 | 01 | 11 | 10 |\n"
+				+ "     00 |  1 |  0 |  0 |  1 |\n"
+				+ "     01 |  0 |  1 |  1 |  0 |\n"
+				+ "     11 |  0 |  1 |  1 |  1 |\n"
+				+ "     10 |  1 |  0 |  1 |  1 |\n\n";	
+				listaAlternativas.addAll(Arrays.asList("Uma quadra", "Duas quadras", "Três quadras","Quatro quadras", "Nenhuma quadra"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três quadras");
+		listaAlternativas.clear();
+
+		System.out.printf("Você acertou %.0f questão(ões) no teste", pontuacao);
+
 	}
 
 	static void instrucoes() throws InterruptedException {
