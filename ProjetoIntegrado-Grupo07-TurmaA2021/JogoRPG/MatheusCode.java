@@ -44,7 +44,7 @@ public class MatheusCode {
 
 		if (resposta.equals(String.valueOf(letraAlternativa))) {
 			System.out.println("Alternativa correta");
-			acertou = 1;
+			acertou++;
 		} else {
 			System.out.println("Alternativa errada");
 		}
@@ -67,18 +67,50 @@ public class MatheusCode {
 		String pergunta;
 		ArrayList<String> listaAlternativas = new ArrayList<String>();
 
-		pergunta = "Qual valor hexadecimal que convertido para octagonal fica igual a 247?";
+		pergunta = "Questão 01 - Qual valor hexadecimal que convertido para octagonal fica igual a 247?";
 		listaAlternativas.addAll(Arrays.asList("A7", "A4", "A3", "B1", "BF"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "A7");
 		listaAlternativas.clear();
 
-		pergunta = "Qual valor decimal que convertido para binario fica igual a 0100?";
+		pergunta = "Questão 02 - Qual valor decimal que convertido para binario fica igual a 0100?";
 		listaAlternativas.addAll(Arrays.asList("1", "2", "3", "4", "5"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "4");
 		listaAlternativas.clear();
 
-		pergunta = "Qual valor decimal que convertido para binario fica igual a 1000?";
-		listaAlternativas.addAll(Arrays.asList("8", "1", "3", "4"));
+		pergunta = "Questão 03 - Qual valor decimal que convertido para binario fica igual a 1000?";
+		listaAlternativas.addAll(Arrays.asList("8", "1", "3", "4", "5"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 04 - Em uma expressão lógica, quais sinais representam uma porta OR, AND e"
+				+ "NOT, respectivamente?";
+		listaAlternativas.addAll(Arrays.asList("Mais, ponto e barra", "Ponto, mais e barra", "Barra, ponto e mais", "Ponto, barra e mais", "Nenhum desses sinais"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Mais, ponto e barra");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 05 - No momento de extrair a tabela verdade de uma expressão lógica, que contem parênteses, AND e OR,"
+				+ "por exemplo: A . B . C + A . (C + A + D), qual a ordem mais aprorpiada de resolução da expressão respectivamente?";
+		listaAlternativas.addAll(Arrays.asList("Parênteses, AND e OR", "Parênteses, OR e AND", "Iniciando com os termos da direita para a esquerda", "AND, OR e Parênteses", "OR, AND e Parênteses"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Parênteses, AND e OR");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 06 - ";
+		listaAlternativas.addAll(Arrays.asList());
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 07 - ";
+		listaAlternativas.addAll(Arrays.asList());
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 08 - ";
+		listaAlternativas.addAll(Arrays.asList());
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+		listaAlternativas.clear();
+		
+		pergunta = "Questão 09 - ";
+		listaAlternativas.addAll(Arrays.asList());
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
 		listaAlternativas.clear();
 
