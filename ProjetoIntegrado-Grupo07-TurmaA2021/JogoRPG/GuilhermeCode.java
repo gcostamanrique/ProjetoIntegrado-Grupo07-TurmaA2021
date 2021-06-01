@@ -10,7 +10,7 @@ public class GuilhermeCode {
 
 	static Scanner leitor = new Scanner(System.in);
 
-	static int tempoRapido = 0, tempoLento = 0;
+	static int tempoRapido = 5, tempoLento = 30;
 
 	static void narrativa(String mensagem, TimeUnit unit, long tempoMensagem) throws InterruptedException {
 		for (char caractere : mensagem.toCharArray()) {
@@ -484,7 +484,7 @@ public class GuilhermeCode {
 						+ "10 perguntas que vão ranquear os futuros cidadãos em 4 níveis, A, B, C e D. no entanto você já \n"
 						+ "se perguntou o que acontece caso não alcance os critérios mínimos para essas notas? Os \n"
 						+ "documentos informam qual é o destino de tais pessoas, e por isso eu digo agora!\n"
-						+ "O destino daqueles que acertam menos de 6 questões, é o trabalho forçado para manter o \n"
+						+ "O destino daqueles que acertam menos de 7 questões, é o trabalho forçado para manter o \n"
 						+ "estilo de vida dos cidadãos ranqueados, podendo nunca mais sair legalmente das instalações \n"
 						+ "de trabalho, apesar de não sofrermos maus tratos, uma vida de deveres e obrigações, sem \n"
 						+ "direitos, é uma vida inadequada.\n"
@@ -990,14 +990,14 @@ public class GuilhermeCode {
 		ArrayList<String> listaLetrasAlternativas = new ArrayList<String>();
 
 		System.out.println("\n");
-		
+
 		Collections.shuffle(listaAlternativas);
 		Collections.shuffle(listaAlternativas);
 		Collections.shuffle(listaAlternativas);
 
 		do {
-			narrativa(pergunta,TimeUnit.MILLISECONDS,tempoRapido);
-			System.out.println("\n");
+			narrativa(pergunta, TimeUnit.MILLISECONDS, tempoRapido);
+			System.out.println("\n\n");
 
 			for (int i = 0; i < listaAlternativas.size(); i++) {
 
@@ -1019,10 +1019,10 @@ public class GuilhermeCode {
 																	// alternativas ele não vai sair do looping
 
 		if (resposta.equals(String.valueOf(letraAlternativa))) {
-			narrativa("Alternativa correta",TimeUnit.MILLISECONDS,tempoLento);
+			narrativa("\nResposta gravada\n", TimeUnit.MILLISECONDS, tempoLento);
 			acertou++;
 		} else {
-			narrativa("Alternativa errada",TimeUnit.MILLISECONDS,tempoLento);
+			narrativa("\nResposta gravada\n", TimeUnit.MILLISECONDS, tempoLento);
 		}
 
 		return acertou;
@@ -1083,13 +1083,20 @@ public class GuilhermeCode {
 				saida = false;
 			}
 		} while (saida);
-		
+
+		narrativa("\n\nBem vindo " + nomePersonagem + ", estavamos ao seu aguardo!\n"
+				+ "a partir desse momento, você irá realizar seu teste de cidadania\n"
+				+ "Lembrando que sua nota sai imediatamente após a conclusão do seu exame, porem para obter \n"
+				+ "os benefícios de um cidadão, será necessário esperar até a chegada do seu documento em sua \n"
+				+ "residência, o que irá demorar de um a dois dias, então aproveite esse período para descansar!\n"
+				+ "\nApós ser informado desses últimos detalhes, você se dirige ao local informado e inicia o teste!\n"
+				+ "\nBOA SORTE, E SUCESSO! CASO CONTRÁRIO, SERÁ TARDE DEMAIS.\n" + "\n...\n", TimeUnit.MILLISECONDS,
+				tempoRapido);
+
 		float pontuacao = 0;
 		String pergunta;
 		ArrayList<String> listaAlternativas = new ArrayList<String>();
-		
-		
-		
+
 		pergunta = "Questão 01 - Qual valor hexadecimal que convertido para octagonal fica igual a 247?";
 		listaAlternativas.addAll(Arrays.asList("A7", "A4", "A3", "B1", "BF"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "A7");
@@ -1104,52 +1111,207 @@ public class GuilhermeCode {
 		listaAlternativas.addAll(Arrays.asList("8", "1", "3", "4", "5"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
 		listaAlternativas.clear();
-		
+
 		pergunta = "Questão 04 - Em uma expressão lógica, quais sinais representam uma porta OR, AND e"
 				+ "NOT, respectivamente?";
-		listaAlternativas.addAll(Arrays.asList("Mais, ponto e barra", "Ponto, mais e barra", "Barra, ponto e mais", "Ponto, barra e mais", "Nenhum desses sinais"));
+		listaAlternativas.addAll(Arrays.asList("Mais, ponto e barra", "Ponto, mais e barra", "Barra, ponto e mais",
+				"Ponto, barra e mais", "Nenhum desses sinais"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Mais, ponto e barra");
 		listaAlternativas.clear();
-		
+
 		pergunta = "Questão 05 - No momento de extrair a tabela verdade de uma expressão lógica, que contem parênteses, AND e OR,"
 				+ "por exemplo: A . B . C + A . (C + A + D), qual a ordem mais aprorpiada de resolução da expressão respectivamente?";
-		listaAlternativas.addAll(Arrays.asList("Parênteses, AND e OR", "Parênteses, OR e AND", "Iniciando com os termos da direita para a esquerda", "AND, OR e Parênteses", "OR, AND e Parênteses"));
+		listaAlternativas.addAll(Arrays.asList("Parênteses, AND e OR", "Parênteses, OR e AND",
+				"Iniciando com os termos da direita para a esquerda", "AND, OR e Parênteses", "OR, AND e Parênteses"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Parênteses, AND e OR");
 		listaAlternativas.clear();
-		
-		pergunta = "Questão 06 - ";
-		listaAlternativas.addAll(Arrays.asList());
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+
+		pergunta = "Questão 06 - Qual o resultado de uma tabela verdade do tipo XOR?\n" + "   | A | B | S |\n"
+				+ "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n" + "   | 1 | 1 | ? |\n";
+		listaAlternativas.addAll(Arrays.asList("S = 0, 1, 1, 0", "S = 1, 0, 0, 1", "S = 1, 1, 1, 1", "S = 0, 0, 0, 0",
+				"S = 1, 1, 0, 0"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "S = 0, 1, 1, 0");
 		listaAlternativas.clear();
-		
-		pergunta = "Questão 07 - ";
-		listaAlternativas.addAll(Arrays.asList());
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
+
+		pergunta = "Questão 07 - Questão 06 - Qual o resultado de uma tabela verdade do tipo XNOT?\n"
+				+ "   | A | B | S |\n" + "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n"
+				+ "   | 1 | 1 | ? |\n";
+		listaAlternativas.addAll(Arrays.asList("S = 0, 1, 1, 0", "S = 1, 0, 0, 1", "S = 1, 1, 1, 1", "S = 0, 0, 0, 0",
+				"S = 1, 1, 0, 0"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "S = 1, 0, 0, 1");
 		listaAlternativas.clear();
-		
+
 		pergunta = "Questão 08 - Segundo o mapa de karnaugh apresentado, quantas unidades, pares, quadras ou oitavas, esse mapa apresenta para ser o mais otimizado possivel?\\n\"\r\n"
-				+ " \\n C e D / A e B\\n\"\r\n"
-				+ "        | 00 | 01 | 11 | 10 |\n"
-				+ "     00 |  1 |  0 |  0 |  1 |\n"
-				+ "     01 |  0 |  1 |  1 |  0 |\n"
-				+ "     11 |  0 |  1 |  1 |  1 |\n"
+				+ " \n C e D / A e B\n" + "        | 00 | 01 | 11 | 10 |\n" + "     00 |  1 |  0 |  0 |  1 |\n"
+				+ "     01 |  0 |  1 |  1 |  0 |\n" + "     11 |  0 |  1 |  1 |  1 |\n"
 				+ "     10 |  1 |  0 |  0 |  0 |\n";
-		listaAlternativas.addAll(Arrays.asList("Três pares e uma quadra", "Uma unidade, dois pares e uma quadra", "Duas quadras", "Uma unidade e quatro pares", "Uma unidade e duas quadras"));
+		listaAlternativas.addAll(Arrays.asList("Três pares e uma quadra", "Uma unidade, dois pares e uma quadra",
+				"Duas quadras", "Uma unidade e quatro pares", "Uma unidade e duas quadras"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três pares e uma quadra");
 		listaAlternativas.clear();
-	
+
 		pergunta = "Questão 09 - Segundo o mapa de karnaugh apresentado, quantas quadras ele possui para ser o mais otimizado possivel?\n"
-				+ " \n C e D / A e B\n"
-				+ "        | 00 | 01 | 11 | 10 |\n"
-				+ "     00 |  1 |  0 |  0 |  1 |\n"
-				+ "     01 |  0 |  1 |  1 |  0 |\n"
-				+ "     11 |  0 |  1 |  1 |  1 |\n"
-				+ "     10 |  1 |  0 |  1 |  1 |\n\n";	
-				listaAlternativas.addAll(Arrays.asList("Uma quadra", "Duas quadras", "Três quadras","Quatro quadras", "Nenhuma quadra"));
+				+ " \n C e D / A e B\n" + "        | 00 | 01 | 11 | 10 |\n" + "     00 |  1 |  0 |  0 |  1 |\n"
+				+ "     01 |  0 |  1 |  1 |  0 |\n" + "     11 |  0 |  1 |  1 |  1 |\n"
+				+ "     10 |  1 |  0 |  1 |  1 |\n\n";
+		listaAlternativas.addAll(
+				Arrays.asList("Uma quadra", "Duas quadras", "Três quadras", "Quatro quadras", "Nenhuma quadra"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três quadras");
 		listaAlternativas.clear();
 
-		System.out.printf("Você acertou %.0f questão(ões) no teste", pontuacao);
+		pergunta = "Questão 10 - Converta oo valor de 1 decimal para binario\n";
+		listaAlternativas.addAll(Arrays.asList("00", "01", "10", "11", "Nenhuma alternativa"));
+		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "TADS2021NA");
+		listaAlternativas.clear();
+
+		if (pontuacao < 7) {
+			narrativa("\n\nApós terminar a conclusão do teste, você se levanta e percebe que a sala esta vazia, o \n"
+					+ "orientador não está onde deveria estar, o que é estranho. Após alguns segundos você começa \n"
+					+ "a ficar desorientado e senta novamente para se recuperar, porem tudo está ficando escuro, \n"
+					+ "você sente dificuldade de respirar e por fim não vê mais nada.\n"
+					+ "\nQuando você acordou, estava assustando e desorientado, em um local aparentemente \n"
+					+ "desconhecido, utilizando uma roupa que não era a sua inicialmente. Apesar da situação \n"
+					+ "estranha a qual você se encontra, você mantem a calma e aguarda um pouco.\n"
+					+ "\nAlguns minutos depois, uma pessoa entra na sala, acompanhada por dois seguranças, \n"
+					+ "claramente seguranças pela roupa estilo militar e uma espécie de arma em seus coldres. A \n"
+					+ "partir desse momento você fica mais desesperado, apesar de estar se controlando.\n"
+					+ "\n“Meu nome é Joyce, e como uma cidadã de ranque A, é meu dever informar o que está \n"
+					+ "acontecendo com você senhor(a)”" + nomePersonagem
+					+ "\n\nE ela começa a explicação dos que realmente está acontecendo.\n"
+					+ "\nA primeira coisa a ser dita é que na verdade é um teste de categorização da população em \n"
+					+ "ranques de D a A, o que já era e conhecimento comum, no enteando existe uma categoria \n"
+					+ "inferior a D, os ranques E, a sua existência é desconhecida por todos os cidadãos e habitantes, \n"
+					+ "exceto pelos ranques A e pelos próprios ranques E.\n"
+					+ "\nA função dos cidadãos ranque E, é manter a sociedade funcionando como ela funciona, dando \n"
+					+ "espaço para os ranqueados e habitantes viverem em segurança, harmonia, conforto e com a \n"
+					+ "possibilidade de focarem em seus estudos e desenvolvimento de suas habilidades. Essas \n"
+					+ "funções vão ser desempenhadas em um local especifico, ao qual foi informado que não \n"
+					+ "poderíamos mais deixar, nunca mais. Apesar de sermos tratados de forma humana, com \n"
+					+ "respeito, uma vida de subserviência não é adequada a ninguém. Mas infelizmente já não \n"
+					+ "temos mais escolha.\n"
+					+ "\nApós essa explicação, você percebeu que poderia ter se dedicado mais a passar no exame, isso \n"
+					+ "teria evitado viver de tal forma. O que está feito, está feito, então o que pode ser feito agora é \n"
+					+ "conviver com esse resultado ou lutar por algo melhor. E nesse momento, com esse \n"
+					+ "pensamento, te ocorre a ideia de porque muitas pessoas tem evitado o teste, será que elas \n"
+					+ "sabem? A esperança ainda não acabou!!!\n", TimeUnit.MILLISECONDS, tempoRapido);
+		} else if (pontuacao == 7) {
+			narrativa("\n\nParabéns por concluir a prova!\n" + "\nSua pontuação é classificada como D!!!\n"
+					+ "\nVocê oficialmente agora é um cidadão de E-NAC, parabéns por conquistar seu título com muito \n"
+					+ "esforço, inteligência e sabedoria! \n"
+					+ "\nA partir do momento em que receber seu cartão de cidadão com a pontuação D, você também \n"
+					+ "irá receber novos manuais e documentos relacionando as empresas em que você pode \n"
+					+ "aprender e desempenhar uma função, será disponibilizado seu acesso aos sites oficiais, assim \n"
+					+ "como outros documentos relacionados. \n"
+					+ "\nLembrando que sua pontuação atual não é fixa, você sempre tem a possibilidade de alcançar \n"
+					+ "maiores níveis!!! Basta se esforçar mais ainda no desempenho de suas atividades e realizar um \n"
+					+ "novo teste quando disponível.\n"
+					+ "Após ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
+					+ "feito, e tranquilamente retorna ao seu lar, com a sensação de dever cumprido e muito feliz por \n"
+					+ "conseguir essa conquista! E já até se imagina frequentando a unidade C-NAC-01/3.\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+		} else if (pontuacao == 8) {
+			narrativa("\n\nParabéns por concluir a prova!\n" + "\nSua pontuação é classificada como C!!!\n"
+					+ "\nVocê oficialmente agora é um cidadão de E-NAC, parabéns por conquistar seu título com muito \n"
+					+ "esforço, inteligência e sabedoria! \n"
+					+ "\nA partir do momento em que receber seu cartão de cidadão com a pontuação C, você também \n"
+					+ "irá receber novos manuais e documentos relacionando as empresas em que você pode \n"
+					+ "aprender e desempenhar uma função, será disponibilizado seu acesso aos sites oficiais, assim \n"
+					+ "como outros documentos relacionados. \n"
+					+ "\nLembrando que sua pontuação atual não é fixa, você sempre tem a possibilidade de alcançar \n"
+					+ "maiores níveis!!! Basta se esforçar mais ainda no desempenho de suas atividades e realizar um \n"
+					+ "novo teste quando disponível.\n"
+					+ "Após ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
+					+ "feito, e tranquilamente retorna ao seu lar, com a sensação de dever cumprido e muito feliz por \n"
+					+ "conseguir essa conquista! E já até se imagina frequentando a unidade C-NAC-01/3.\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+		} else if (pontuacao == 9) {
+			narrativa("\n\nParabéns por concluir a prova!\n" + "\nSua pontuação é classificada como B!!!\n"
+					+ "\nVocê oficialmente agora é um cidadão de E-NAC, parabéns por conquistar seu título com muito \n"
+					+ "esforço, inteligência e sabedoria! \n"
+					+ "\nA partir do momento em que receber seu cartão de cidadão com a pontuação B, você também \n"
+					+ "irá receber novos manuais e documentos relacionando as empresas em que você pode \n"
+					+ "aprender e desempenhar uma função, será disponibilizado seu acesso aos sites oficiais, assim \n"
+					+ "como outros documentos relacionados. \n"
+					+ "\nLembrando que sua pontuação atual não é fixa, você sempre tem a possibilidade de alcançar \n"
+					+ "maiores níveis!!! Basta se esforçar mais ainda no desempenho de suas atividades e realizar um \n"
+					+ "novo teste quando disponível.\n"
+					+ "Após ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
+					+ "feito, e tranquilamente retorna ao seu lar, com a sensação de dever cumprido e muito feliz por \n"
+					+ "conseguir essa conquista! E já até se imagina frequentando a unidade C-NAC-01/3.\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+		} else if (pontuacao == 10) {
+			narrativa("\n\nParabéns por concluir a prova!\n" + "\nSua pontuação é classificada como A!!!\n"
+					+ "\nVocê oficialmente agora é um cidadão de E-NAC, parabéns por conquistar seu título com muito \n"
+					+ "esforço, inteligência, sabedoria e atenção! \n"
+					+ "\nApós ler essa mensagem, o instrutor da prova se dirige a você e fala:\n"
+					+ "“Você só conseguiria essa pontuação obtendo acesso ao documento secreto na biblioteca.”\n"
+					+ "Você fica espantado por ele saber disso, já que o documento avisou que poderia haver grandes \n"
+					+ "consequências. E ate esse momento, você não pensou que poderia ser uma armadilha, ou \n"
+					+ "pensou?\n" + "\nVendo sua reação um pouco desesperada, ele fala.\n", TimeUnit.MILLISECONDS,
+					tempoRapido);
+
+			boolean sair = true;
+			do {
+				narrativa(
+						"\n\n“Não se preocupe, apenas gostaríamos de saber se você concorda com o que vem ocorrendo\n"
+								+ "nessa sociedade?\n" + "\n[ Concordo ] \n" + "[ Discordo ]]n]n",
+						TimeUnit.MILLISECONDS, tempoRapido);
+				String resposta = leitor.next();
+				switch (resposta.toUpperCase()) {
+				case "CONCORDO":
+					narrativa("\n\nApós você responder que concorda, ele te orienta com as seguintes informações.\n"
+							+ "\nO documento na biblioteca é um documento verídico, tudo o que ocorreu nas cidades de \n"
+							+ "EXODO 1 e 2, além deles estarem buscando por EXODO3, para realizar a mesma coisa, porém \n"
+							+ "esse teste é para verificar os possíveis cidadãos que podem auxiliar nessa busca, e manter a \n"
+							+ "ordem na instalação de controle dos ranques E, ou seja, aqueles que não passaram no teste, \n"
+							+ "assim como, serem os futuros líderes dessa sociedade. \n"
+							+ "\nComo você concorda com essa situação, a partir desse momento, também é seu dever se \n"
+							+ "responsabilizar pelo que ocorre nessa sociedade, e carregar esse fardo com absoluta \n"
+							+ "descrição, silencio e dedicação.\n"
+							+ "\nPor último, ele informou que logo mais entrariam em contato para informar os próximos \n"
+							+ "passos, já que agora você tem esse conhecimento e faz parte desse seleto grupo de indivíduos.\n"
+							+ "\nVocê ficou muito satisfeito com seu resultado após o teste, e apesar do que vem ocorrendo, \n"
+							+ "você não possui culpa alguma, ou peso moral algum, já que a sociedade é baseada em \n"
+							+ "inteligência, isso é apenas a lei da natureza sendo aplicada a sociedade. \n",
+							TimeUnit.MILLISECONDS, tempoRapido);
+					sair = false;
+					break;
+				case "DISCORDA":
+					narrativa("\n\nApós você responder que não concorda, ele te orienta com as seguintes informações.\n"
+							+ "\nO documento na biblioteca é um documento verídico, tudo o que ocorreu nas cidades de \n"
+							+ "EXODO 1 e 2, além deles estarem buscando por EXODO3, para realizar a mesma coisa, porém \n"
+							+ "esse teste é para verificar os possíveis cidadãos que podem auxiliar nessa busca, e manter a \n"
+							+ "ordem na instalação de controle dos ranques E, ou seja, aqueles que não passaram no teste, \n"
+							+ "assim como, serem os futuros líderes dessa sociedade. \n"
+							+ "\nComo você não concorda com essa situação, a partir desse momento, você será vigiado a \n"
+							+ "todos momentos, para não divulgar essa informação, e isso pode ser considerado uma prova \n"
+							+ "de como a sociedade valoriza pessoas com intelecto e atenção, pois caso contrário, você seria \n"
+							+ "levado a uma das instalações de serviços e seria confinado a ela. \n"
+							+ "\nPor último, ele informou que logo mais entrariam em contato para informar os próximos \n"
+							+ "passos, já que agora você tem esse conhecimento e faz parte desse seleto grupo de indivíduos.\n"
+							+ "\nVocê ficou muito satisfeito com seu resultado após o teste, porem ao mesmo tempo muito \n"
+							+ "decepcionado com o que a sociedade vem fazendo com esses indivíduos. Confinamento e \n"
+							+ "subserviência não é algo agradável e nenhum ser existente, e por isso você pensa em como \n"
+							+ "isso pode ocorrer, como as coisas chegaram a esse ponto. O medo de acontecer o que \n"
+							+ "aconteceu anteriormente, ou seja, o colapso da sociedade é tão grande que forcou os \n"
+							+ "humanos a tratarem a própria espécie dessa forma? Ou pior ainda, e se for apenas mais um \n"
+							+ "ato de guerra, disfarçado apenas de paz?\n"
+							+ "\nCom essas duvidas em sua mente, lhe ocorreu mais um pensamento, que era sobre os \n"
+							+ "indivíduos que estão se recusando a fazer a prova, será que eles sabem? Será que precisam de \n"
+							+ "ajuda? Com a situação do monitoramento, o risco será maior, mas talvez valha a pena no \n"
+							+ "final!!!\n", TimeUnit.MILLISECONDS, tempoRapido);
+					sair = false;
+					break;
+				default:
+					narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n",
+							TimeUnit.MILLISECONDS, tempoRapido);
+					sair = true;
+					break;
+				}
+			} while (sair);
+
+			narrativa("\n\n\nOBRIGADO POR JOGAR NOSSO JOGO!", TimeUnit.MILLISECONDS, tempoLento);
+		}
 
 	}
 
