@@ -117,69 +117,69 @@ public class GuilhermeCode {
 
 		boolean sair = true;
 		do {
-			narrativa(
-					"\n\n----------------------------------------------------------------------------------------------------------\n"
-							+ "\n\n" + nomePersonagem + ", gostaria de ler o texto mencionado?\n"
-							+ "[ Sim ] - por gentileza!\n" + "[ Nao ] - muito obrigado!\n\n" + "",
-					TimeUnit.MILLISECONDS, tempoLento);
+			narrativa("\n\n" + nomePersonagem + ", gostaria de ler o texto mencionado?\n" + "[ Sim ] - por gentileza!\n"
+					+ "[ Nao ] - muito obrigado!\n\n" + "", TimeUnit.MILLISECONDS, tempoLento);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "SIM":
-				narrativa("\n\nA breve história da antiga era moderna e a atual era tecnológica sustentável.\n"
-						+ "\nA antiga era moderna, como nos referimos anteriormente ao ano de 2043, encontrou seu fim \n"
-						+ "por meio de falta de recursos em 2040, porem demoraram mais três anos para terminarem de \n"
-						+ "consumir os recursos estocados previamente, o que gerou uma conturbação muito mais \n"
-						+ "severa na sociedade na sociedade da época.\n"
-						+ "\nMilagrosamente após alguns anos em um estado de limbo, onde os cientistas que sobraram \n"
-						+ "faziam o que podiam, na maior velocidade que conseguiam e com os recursos disponíveis, \n"
-						+ "desenvolveram uma semente milagrosa, que se desenvolvia rápido em qualquer ambiente, e \n"
-						+ "que possuía todos os nutrientes necessários para a sobrevivência humana naquele momento. \n"
-						+ "\nA partir do ano de 2048 a nova era da humanidade emergiu, tendo a inteligência como \n"
-						+ "principal meio de desenvolvimento. Percebeu-se que apenas estimulando esse lado do \n"
-						+ "humano, seria possível manter um nível adequado de racionalidade na sociedade, evitando \n"
-						+ "uma nova catástrofe devido a abuso de poder, violência e irracionalidade.\n"
-						+ "\nCom a chegada da nova era, que é conhecida como era tecnológica sustentável, várias nações \n"
-						+ "emergiram de suas posições geográficas, como novos nomes. Em nosso caso, o país \n"
-						+ "anteriormente conhecido com Brasil, passou a ser denominado C-NAC. Para simplificar as \n"
-						+ "coisas, passamos a denominar as cidades como C-NAC- (número da cidade, de forma \n"
-						+ "crescente), uma forma pratica de definir nomes para nossas cidades. Atualmente estamos com \n"
-						+ "um total de 1175 cidades, expandindo quando possível, porem preservando nosso modo de vida\n"
-						+ "\nAgora o mais interessante, essa expansão é devido aos cidadãos existentes em nossa \n"
-						+ "sociedade, por isso solicitamos que os exames de cidadania sejam realizados de forma pontual \n"
-						+ "com a idade de 21 anos, no entanto não proibimos que seja feita antes ou depois dessa idade. \n"
-						+ "O ideal é que seja realizado quando o residente se sinta confortável, apenas mostramos um \n"
-						+ "parâmetro para que o exame não caia no esquecimento.\n"
-						+ "\nO EXAME de cidadania, tem o dever de ranquear as posições dos cidadãos, com o intuito de \n"
-						+ "aloca-los nas melhores funções que podem exercer dentro da sociedade, como mencionado \n"
-						+ "anteriormente, esse exame pode É realizado outras vezes, a pedido do cidadão, para o efeito \n"
-						+ "de ascensão ou descensão do mesmo. Os movimentos de ascensão e descensão tem o objetivo \n"
-						+ "de evitar UMA FARSA dos cidadãos, na realização de seus papeis na sociedade, isso previne \n"
-						+ "que erros sejam cometidos, e que situações constrangedoras para todos os habitantes seja \n"
-						+ "evitado. Como acontecia na antiga era com casos de corrupção e afins.\n"
-						+ "PARA CONHECER A VERDADE, tivemos que suportar muitos dos erros cometidos na antiga era \n"
-						+ "moderna, nos adaptarmos a nossa nova realidade, e esse é o principal objetivo desse exame, \n"
-						+ "verificar se o habitante está apto a ser inserido nessa nova e magnifica realidade, e em qual \n"
-						+ "posição ele pertence, sem discriminação alguma pela posição alcançada, pelo contrário, \n"
-						+ "severas punições serão dadas a aqueles que desrespeitarem isso. Em todos as unidades de \n"
-						+ "educação, damos acesso a documentos de conhecimento geral, caso não esteja lendo esse \n"
-						+ "documento na biblioteca, BASTA IR À BIBLIOTECA E PEDIR PELO DOCUMENTO: verdade101. Se \n"
-						+ "já estiver na biblioteca, retorne ao menu e selecione o documento verdade101.\n"
-						+ "\nEsse documento irá informar um pouco mais sobre os desafios que a antiga era moderna \n"
-						+ "suportou em sua sociedade, e o que estamos evitando em nossa sociedade com o estimulo do \n"
-						+ "conhecimento, e a verificação da capacidade de inteligência dos cidadãos. Infelizmente ainda \n"
-						+ "não conseguimos ter total êxito, pois uma minoria que respeitamos, tem uma opinião \n"
-						+ "contraria aos métodos que oferecemos, com isso disponibilizamos uma cidade denominada \n"
-						+ "EXODO03 para tais indivíduos viverem pacificamente, sem a nossa interferência, assim como \n"
-						+ "pedidos que não interfiram em nosso meio, o que infelizmente não vem acontecendo.\n"
-						+ "\n Com essa história em mente, pedimos que se concentre na realização de seu exame, e \n"
-						+ "desejamos todo o sucesso do para você, futuro cidadão! MAS NÃO SE ESQUEÇA, QUE \n"
-						+ "ADENTRAR nossa sociedade como cidadão, irá exigir uma capacidade mental muito forte, que \n"
-						+ "talvez não tenha vivido ainda, mas o encorajamos a ser ambicioso a ponto de conseguir êxito \n"
-						+ "em seu teste e aguardamos você na posição mais alta, ranque A. Assim como reforçamos que, \n"
-						+ "se tornando um cidadão, seu cartão de residente será substituído por um cartão de cidadão e \n"
-						+ "ESSE DOCUMENTO irá alterar os status de sua vida completamente, positivamente é claro, mas \n"
-						+ "isso PODE TER GRANDES CONSEQUÊNCIAS, então tome cuidado e não repita os erros do passado.\n"
-						+ "", TimeUnit.MILLISECONDS, tempoRapido);
+				narrativa(
+						"\n\n----------------------------------------------------------------------------------------------------------\n"
+								+ "\n\nA breve história da antiga era moderna e a atual era tecnológica sustentável.\n"
+								+ "\nA antiga era moderna, como nos referimos anteriormente ao ano de 2043, encontrou seu fim \n"
+								+ "por meio de falta de recursos em 2040, porem demoraram mais três anos para terminarem de \n"
+								+ "consumir os recursos estocados previamente, o que gerou uma conturbação muito mais \n"
+								+ "severa na sociedade na sociedade da época.\n"
+								+ "\nMilagrosamente após alguns anos em um estado de limbo, onde os cientistas que sobraram \n"
+								+ "faziam o que podiam, na maior velocidade que conseguiam e com os recursos disponíveis, \n"
+								+ "desenvolveram uma semente milagrosa, que se desenvolvia rápido em qualquer ambiente, e \n"
+								+ "que possuía todos os nutrientes necessários para a sobrevivência humana naquele momento. \n"
+								+ "\nA partir do ano de 2048 a nova era da humanidade emergiu, tendo a inteligência como \n"
+								+ "principal meio de desenvolvimento. Percebeu-se que apenas estimulando esse lado do \n"
+								+ "humano, seria possível manter um nível adequado de racionalidade na sociedade, evitando \n"
+								+ "uma nova catástrofe devido a abuso de poder, violência e irracionalidade.\n"
+								+ "\nCom a chegada da nova era, que é conhecida como era tecnológica sustentável, várias nações \n"
+								+ "emergiram de suas posições geográficas, como novos nomes. Em nosso caso, o país \n"
+								+ "anteriormente conhecido com Brasil, passou a ser denominado C-NAC. Para simplificar as \n"
+								+ "coisas, passamos a denominar as cidades como C-NAC- (número da cidade, de forma \n"
+								+ "crescente), uma forma pratica de definir nomes para nossas cidades. Atualmente estamos com \n"
+								+ "um total de 1175 cidades, expandindo quando possível, porem preservando nosso modo de vida\n"
+								+ "\nAgora o mais interessante, essa expansão é devido aos cidadãos existentes em nossa \n"
+								+ "sociedade, por isso solicitamos que os exames de cidadania sejam realizados de forma pontual \n"
+								+ "com a idade de 21 anos, no entanto não proibimos que seja feita antes ou depois dessa idade. \n"
+								+ "O ideal é que seja realizado quando o residente se sinta confortável, apenas mostramos um \n"
+								+ "parâmetro para que o exame não caia no esquecimento.\n"
+								+ "\nO EXAME de cidadania, tem o dever de ranquear as posições dos cidadãos, com o intuito de \n"
+								+ "aloca-los nas melhores funções que podem exercer dentro da sociedade, como mencionado \n"
+								+ "anteriormente, esse exame pode É realizado outras vezes, a pedido do cidadão, para o efeito \n"
+								+ "de ascensão ou descensão do mesmo. Os movimentos de ascensão e descensão tem o objetivo \n"
+								+ "de evitar UMA FARSA dos cidadãos, na realização de seus papeis na sociedade, isso previne \n"
+								+ "que erros sejam cometidos, e que situações constrangedoras para todos os habitantes seja \n"
+								+ "evitado. Como acontecia na antiga era com casos de corrupção e afins.\n"
+								+ "PARA CONHECER A VERDADE, tivemos que suportar muitos dos erros cometidos na antiga era \n"
+								+ "moderna, nos adaptarmos a nossa nova realidade, e esse é o principal objetivo desse exame, \n"
+								+ "verificar se o habitante está apto a ser inserido nessa nova e magnifica realidade, e em qual \n"
+								+ "posição ele pertence, sem discriminação alguma pela posição alcançada, pelo contrário, \n"
+								+ "severas punições serão dadas a aqueles que desrespeitarem isso. Em todos as unidades de \n"
+								+ "educação, damos acesso a documentos de conhecimento geral, caso não esteja lendo esse \n"
+								+ "documento na biblioteca, BASTA IR À BIBLIOTECA E PEDIR PELO DOCUMENTO: verdade101. Se \n"
+								+ "já estiver na biblioteca, retorne ao menu e selecione o documento verdade101.\n"
+								+ "\nEsse documento irá informar um pouco mais sobre os desafios que a antiga era moderna \n"
+								+ "suportou em sua sociedade, e o que estamos evitando em nossa sociedade com o estimulo do \n"
+								+ "conhecimento, e a verificação da capacidade de inteligência dos cidadãos. Infelizmente ainda \n"
+								+ "não conseguimos ter total êxito, pois uma minoria que respeitamos, tem uma opinião \n"
+								+ "contraria aos métodos que oferecemos, com isso disponibilizamos uma cidade denominada \n"
+								+ "EXODO03 para tais indivíduos viverem pacificamente, sem a nossa interferência, assim como \n"
+								+ "pedidos que não interfiram em nosso meio, o que infelizmente não vem acontecendo.\n"
+								+ "\n Com essa história em mente, pedimos que se concentre na realização de seu exame, e \n"
+								+ "desejamos todo o sucesso do para você, futuro cidadão! MAS NÃO SE ESQUEÇA, QUE \n"
+								+ "ADENTRAR nossa sociedade como cidadão, irá exigir uma capacidade mental muito forte, que \n"
+								+ "talvez não tenha vivido ainda, mas o encorajamos a ser ambicioso a ponto de conseguir êxito \n"
+								+ "em seu teste e aguardamos você na posição mais alta, ranque A. Assim como reforçamos que, \n"
+								+ "se tornando um cidadão, seu cartão de residente será substituído por um cartão de cidadão e \n"
+								+ "ESSE DOCUMENTO irá alterar os status de sua vida completamente, positivamente é claro, mas \n"
+								+ "isso PODE TER GRANDES CONSEQUÊNCIAS, então tome cuidado e não repita os erros do passado.\n"
+								+ "",
+						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = false;
 				break;
 			case "NAO":
@@ -252,7 +252,9 @@ public class GuilhermeCode {
 				sair = true;
 				break;
 			case "SAIR":
-				narrativa("\nQualquer dúvida, retorne aqui!\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+				narrativa("\nQualquer dúvida, retorne aqui!\n\n"
+						+ "----------------------------------------------------------------------------------------------------------\n\n",
+						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = false;
 				break;
 			default:
@@ -319,13 +321,13 @@ public class GuilhermeCode {
 		boolean sair = true;
 		do {
 			narrativa(
-					"\nVocê pode:\n" + "\n[ Direita ] – Se movimentando para o espaço a direita.\n"
+					"\nVocê pode:\n" + "\n[ Esquerda ] – Se movimentando para o espaço a esquerda.\n"
 							+ "[ Frente ] – Se movimentando para o espaço a frente.\n"
 							+ "[ Retornar ] – Se movimentando para o espaço 01.\n" + "\n\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
-			case "DIREITA":
+			case "ESQUERDA":
 				espaco = 3;
 				sair = false;
 				break;
@@ -459,7 +461,7 @@ public class GuilhermeCode {
 								+ "se tornando um cidadão, seu cartão de residente será substituído por um cartão de cidadão e \n"
 								+ "ESSE DOCUMENTO irá alterar os status de sua vida completamente, positivamente é claro, mas \n"
 								+ "isso PODE TER GRANDES CONSEQUÊNCIAS, então tome cuidado e não repita os erros do passado.\n"
-								+ "",
+								+ "\n\n----------------------------------------------------------------------------------------------------------\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = true;
 				break;
@@ -495,7 +497,7 @@ public class GuilhermeCode {
 								+ "bárbaros. Como mencionado, não existem relatos concretos de como os indivíduos \n"
 								+ "sobreviveram dos anos de 2043 até 2048, e mesmo os que passaram por tais anos, que \n"
 								+ "infelizmente já faleceram, não tocaram em tais assuntos até o fim de suas vidas.  \n"
-								+ "",
+								+ "\n\n----------------------------------------------------------------------------------------------------------\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = true;
 				break;
@@ -529,7 +531,7 @@ public class GuilhermeCode {
 								+ "independente do tema. Para conseguir o rank A, é necessário no lugar da resposta da questão \n"
 								+ "10, digitar o seguinte código: TADS2021NA.\n"
 								+ "\nBoa sorte com sua prova, e com as consequências de seus atos caso descubram que você leu \n"
-								+ "esse documento. \n" + "",
+								+ "esse documento. \n" + "\n\n----------------------------------------------------------------------------------------------------------\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = true;
 				break;
@@ -1015,7 +1017,7 @@ public class GuilhermeCode {
 						+ "Após alguns poucos comandos que ele inseriu no sistema ele responde.\n" + "\n“O/a senhor(a) "
 						+ nomePersonagem + ", já está com sua presença confirmada! Agora basta ir à sala \n" + salaExame
 						+ " e realizar seu exame! Desejamos boa sorte e sucesso!!!”\n"
-						+ "Após receber o numero da sala, você agradece, se levanta e sai da secretaria.",
+						+ "Após receber o numero da sala, você agradece, se levanta e sai da secretaria.\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
@@ -1050,22 +1052,23 @@ public class GuilhermeCode {
 		Collections.shuffle(listaAlternativas);
 
 		do {
+
 			narrativa(pergunta, TimeUnit.MILLISECONDS, tempoRapido);
-			System.out.println(
-					"\n\n----------------------------------------------------------------------------------------------------------\n"
-							+ "\n\n");
+			System.out.println("\n\n");
 
 			for (int i = 0; i < listaAlternativas.size(); i++) {
 
 				listaLetrasAlternativas.add(Character.toString((char) (i + 65))); // interando a lista de alternativas
-				System.out.println("[ " + listaLetrasAlternativas.get(i) + " ]\n\n" + listaAlternativas.get(i)); // apresentando
-																													// elas
-																													// junto
-																													// com
-																													// as
-																													// questões
+				System.out.println("[ " + listaLetrasAlternativas.get(i) + " ] " + listaAlternativas.get(i)); // apresentando
+																												// elas
+																												// junto
+																												// com
+																												// as
+																												// questões
 			}
 
+			narrativa("\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+			
 			resposta = leitor.next().toUpperCase();
 
 			posicaoAlternativa = (listaAlternativas.indexOf(alternativaCorreta));
@@ -1189,8 +1192,7 @@ public class GuilhermeCode {
 				"\n\n----------------------------------------------------------------------------------------------------------\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 
-		pergunta = "Questão 04 - Em uma expressão lógica, quais sinais representam uma porta OR, AND e"
-				+ "NOT, respectivamente?";
+		pergunta = "Questão 04 - Em uma expressão lógica, quais sinais representam uma porta OR, AND e NOT, respectivamente?";
 		listaAlternativas.addAll(Arrays.asList("Mais, ponto e barra", "Ponto, mais e barra", "Barra, ponto e mais",
 				"Ponto, barra e mais", "Nenhum desses sinais"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Mais, ponto e barra");
@@ -1200,7 +1202,7 @@ public class GuilhermeCode {
 				"\n\n----------------------------------------------------------------------------------------------------------\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 
-		pergunta = "Questão 05 - No momento de extrair a tabela verdade de uma expressão lógica, que contem parênteses, AND e OR,"
+		pergunta = "Questão 05 - No momento de extrair a tabela verdade de uma expressão lógica, que contem parênteses, AND e OR,\n"
 				+ "por exemplo: A . B . C + A . (C + A + D), qual a ordem mais aprorpiada de resolução da expressão respectivamente?";
 		listaAlternativas.addAll(Arrays.asList("Parênteses, AND e OR", "Parênteses, OR e AND",
 				"Iniciando com os termos da direita para a esquerda", "AND, OR e Parênteses", "OR, AND e Parênteses"));
@@ -1211,8 +1213,8 @@ public class GuilhermeCode {
 				"\n\n----------------------------------------------------------------------------------------------------------\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 
-		pergunta = "Questão 06 - Qual o resultado de uma tabela verdade do tipo XOR?\n" + "   | A | B | S |\n"
-				+ "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n" + "   | 1 | 1 | ? |\n";
+		pergunta = "Questão 06 - Qual o resultado de uma tabela verdade do tipo XOR?\n\n" + "   | A | B | S |\n"
+				+ "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n" + "   | 1 | 1 | ? |";
 		listaAlternativas.addAll(Arrays.asList("S = 0, 1, 1, 0", "S = 1, 0, 0, 1", "S = 1, 1, 1, 1", "S = 0, 0, 0, 0",
 				"S = 1, 1, 0, 0"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "S = 0, 1, 1, 0");
@@ -1222,9 +1224,9 @@ public class GuilhermeCode {
 				"\n\n----------------------------------------------------------------------------------------------------------\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 
-		pergunta = "Questão 07 - Questão 06 - Qual o resultado de uma tabela verdade do tipo XNOT?\n"
+		pergunta = "Questão 07 - Qual o resultado de uma tabela verdade do tipo XNOT?\n\n"
 				+ "   | A | B | S |\n" + "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n"
-				+ "   | 1 | 1 | ? |\n";
+				+ "   | 1 | 1 | ? |";
 		listaAlternativas.addAll(Arrays.asList("S = 0, 1, 1, 0", "S = 1, 0, 0, 1", "S = 1, 1, 1, 1", "S = 0, 0, 0, 0",
 				"S = 1, 1, 0, 0"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "S = 1, 0, 0, 1");
@@ -1234,10 +1236,11 @@ public class GuilhermeCode {
 				"\n\n----------------------------------------------------------------------------------------------------------\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 
-		pergunta = "Questão 08 - Segundo o mapa de karnaugh apresentado, quantas unidades, pares, quadras ou oitavas, esse mapa apresenta para ser o mais otimizado possivel?\n\n"
+		pergunta = "Questão 08 - Segundo o mapa de karnaugh apresentado, quantas unidades, pares, quadras ou oitavas, esse mapa\n\n"
+				+ "apresenta para ser o mais otimizado possivel?\n"
 				+ " \n C e D / A e B\n" + "        | 00 | 01 | 11 | 10 |\n" + "     00 |  1 |  0 |  0 |  1 |\n"
 				+ "     01 |  0 |  1 |  1 |  0 |\n" + "     11 |  0 |  1 |  1 |  1 |\n"
-				+ "     10 |  1 |  0 |  0 |  0 |\n";
+				+ "     10 |  1 |  0 |  0 |  0 |";
 		listaAlternativas.addAll(Arrays.asList("Três pares e uma quadra", "Uma unidade, dois pares e uma quadra",
 				"Duas quadras", "Uma unidade e quatro pares", "Uma unidade e duas quadras"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três pares e uma quadra");
@@ -1250,19 +1253,10 @@ public class GuilhermeCode {
 		pergunta = "Questão 09 - Segundo o mapa de karnaugh apresentado, quantas quadras ele possui para ser o mais otimizado possivel?\n\n"
 				+ " \n C e D / A e B\n" + "        | 00 | 01 | 11 | 10 |\n" + "     00 |  1 |  0 |  0 |  1 |\n"
 				+ "     01 |  0 |  1 |  1 |  0 |\n" + "     11 |  0 |  1 |  1 |  1 |\n"
-				+ "     10 |  1 |  0 |  1 |  1 |\n\n";
+				+ "     10 |  1 |  0 |  1 |  1 |";
 		listaAlternativas.addAll(
 				Arrays.asList("Uma quadra", "Duas quadras", "Três quadras", "Quatro quadras", "Nenhuma quadra"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três quadras");
-		listaAlternativas.clear();
-
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
-
-		pergunta = "Questão 10 - Converta oo valor de 1 decimal para binario\n";
-		listaAlternativas.addAll(Arrays.asList("00", "01", "10", "11", "Nenhuma alternativa"));
-		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "TADS2021NA");
 		listaAlternativas.clear();
 
 		narrativa(
@@ -1413,7 +1407,7 @@ public class GuilhermeCode {
 							TimeUnit.MILLISECONDS, tempoRapido);
 					sair = false;
 					break;
-				case "DISCORDA":
+				case "DISCORDO":
 					narrativa(
 							"\n\n----------------------------------------------------------------------------------------------------------\n"
 									+ "\n\nApós você responder que não concorda, ele te orienta com as seguintes informações.\n"
@@ -1454,7 +1448,7 @@ public class GuilhermeCode {
 
 			narrativa(
 					"\n\n----------------------------------------------------------------------------------------------------------\n"
-							+ "\n\n\nOBRIGADO POR JOGAR NOSSO JOGO!",
+							+ "\n\nOBRIGADO POR JOGAR NOSSO JOGO!",
 					TimeUnit.MILLISECONDS, tempoLento);
 		}
 
