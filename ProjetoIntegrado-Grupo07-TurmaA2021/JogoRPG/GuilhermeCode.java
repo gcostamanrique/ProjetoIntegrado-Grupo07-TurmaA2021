@@ -304,12 +304,13 @@ public class GuilhermeCode {
 	}
 
 	static int earlyGameEspaco02(String nomePersonagem, int espaco) throws InterruptedException {
+
 		narrativa(
 				"\n\n----------------------------------------------------------------------------------------------------------\n"
 						+ "\n\nAdentrado o espaço 02, você observa as coisas da seguinte perspectiva:\n"
 						+ "\nVocê está em um espaço semi coberto, com o chão feito de paralelepípedo e concreto.\n"
 						+ "\nA sua direita, você ainda observa o estacionamento aberto creio de carros a uma certa \n"
-						+ "distância, porem o que chama a atenção, é uma arvore imensa rodeada por bancos e que é \n"
+						+ "distância, porem o que chama a atenção, é uma arvore imensa rodeada por bancos, e que é \n"
 						+ "descrita como um dos monumentos da era tecnológica sustentável. A imponência dessa arvore \n"
 						+ "faz refletir sobre como a natureza é de fundamental importância ao planeta, principalmente \n"
 						+ "após o início da era.\n"
@@ -531,7 +532,8 @@ public class GuilhermeCode {
 								+ "independente do tema. Para conseguir o rank A, é necessário no lugar da resposta da questão \n"
 								+ "10, digitar o seguinte código: TADS2021NA.\n"
 								+ "\nBoa sorte com sua prova, e com as consequências de seus atos caso descubram que você leu \n"
-								+ "esse documento. \n" + "\n\n----------------------------------------------------------------------------------------------------------\n",
+								+ "esse documento. \n"
+								+ "\n\n----------------------------------------------------------------------------------------------------------\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = true;
 				break;
@@ -1068,7 +1070,7 @@ public class GuilhermeCode {
 			}
 
 			narrativa("\n\n", TimeUnit.MILLISECONDS, tempoRapido);
-			
+
 			resposta = leitor.next().toUpperCase();
 
 			posicaoAlternativa = (listaAlternativas.indexOf(alternativaCorreta));
@@ -1224,9 +1226,8 @@ public class GuilhermeCode {
 				"\n\n----------------------------------------------------------------------------------------------------------\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 
-		pergunta = "Questão 07 - Qual o resultado de uma tabela verdade do tipo XNOT?\n\n"
-				+ "   | A | B | S |\n" + "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n"
-				+ "   | 1 | 1 | ? |";
+		pergunta = "Questão 07 - Qual o resultado de uma tabela verdade do tipo XNOT?\n\n" + "   | A | B | S |\n"
+				+ "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n" + "   | 1 | 1 | ? |";
 		listaAlternativas.addAll(Arrays.asList("S = 0, 1, 1, 0", "S = 1, 0, 0, 1", "S = 1, 1, 1, 1", "S = 0, 0, 0, 0",
 				"S = 1, 1, 0, 0"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "S = 1, 0, 0, 1");
@@ -1237,8 +1238,8 @@ public class GuilhermeCode {
 				TimeUnit.MILLISECONDS, tempoRapido);
 
 		pergunta = "Questão 08 - Segundo o mapa de karnaugh apresentado, quantas unidades, pares, quadras ou oitavas, esse mapa\n\n"
-				+ "apresenta para ser o mais otimizado possivel?\n"
-				+ " \n C e D / A e B\n" + "        | 00 | 01 | 11 | 10 |\n" + "     00 |  1 |  0 |  0 |  1 |\n"
+				+ "apresenta para ser o mais otimizado possivel?\n" + " \n C e D / A e B\n"
+				+ "        | 00 | 01 | 11 | 10 |\n" + "     00 |  1 |  0 |  0 |  1 |\n"
 				+ "     01 |  0 |  1 |  1 |  0 |\n" + "     11 |  0 |  1 |  1 |  1 |\n"
 				+ "     10 |  1 |  0 |  0 |  0 |";
 		listaAlternativas.addAll(Arrays.asList("Três pares e uma quadra", "Uma unidade, dois pares e uma quadra",
