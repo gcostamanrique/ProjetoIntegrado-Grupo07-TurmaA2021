@@ -66,11 +66,12 @@ public class GuilhermeCode {
 						+ "\nRelacionamentos entre níveis diferentes não é restrito de forma alguma, e novamente, \n"
 						+ "qualquer ato discriminatório RESULTARA NAS MAIS PESADAS CONSEQUÊNCIAS PUNITIVAS, \n"
 						+ "independentemente de seu nível.\n" + "\n" + nomePersonagem
-						+ " você acabou de receber um e-mail oficial!\n" + "\ngostaria de o ler agora?\n"
-						+ "\n[ Sim ] - por gentileza!\n" + "[ Nao ] - muito obrigado!\n\n" + "",
+						+ " você acabou de receber um e-mail oficial!\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
+			narrativa("\ngostaria de o ler agora?\n" + "\n[ Sim ] - por gentileza!\n" + "[ Nao ] - muito obrigado!\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "SIM":
@@ -113,13 +114,14 @@ public class GuilhermeCode {
 	}
 
 	static void earlyGame03(String nomePersonagem) throws InterruptedException {
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n"
-						+ "\n\n" + nomePersonagem + ", gostaria de ler o texto mencionado?\n"
-						+ "[ Sim ] - por gentileza!\n" + "[ Nao ] - muito obrigado!\n" + "",
-				TimeUnit.MILLISECONDS, tempoLento);
+
 		boolean sair = true;
 		do {
+			narrativa(
+					"\n\n----------------------------------------------------------------------------------------------------------\n"
+							+ "\n\n" + nomePersonagem + ", gostaria de ler o texto mencionado?\n"
+							+ "[ Sim ] - por gentileza!\n" + "[ Nao ] - muito obrigado!\n\n" + "",
+					TimeUnit.MILLISECONDS, tempoLento);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "SIM":
@@ -245,7 +247,7 @@ public class GuilhermeCode {
 								+ "aos espaços 07 e 08).\n" + "Espaço 07: secretaria.\n"
 								+ "Espaço 08: prédio principal (esse espaço fornece acesso aos espaços 09 e 10).\n"
 								+ "Espaço 09: salas de exame de 1 a 5.\n" + "Espaço 10: salas de exame de 6 a 10. \n"
-								+ "Atualmente você possui acesso a somente esses espaços.\n",
+								+ "Atualmente você possui acesso somente a esses espaços.\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = true;
 				break;
@@ -319,7 +321,7 @@ public class GuilhermeCode {
 			narrativa(
 					"\nVocê pode:\n" + "\n[ Direita ] – Se movimentando para o espaço a direita.\n"
 							+ "[ Frente ] – Se movimentando para o espaço a frente.\n"
-							+ "[ Retornar ] – Se movimentando para o espaço 01.\n" + "\n",
+							+ "[ Retornar ] – Se movimentando para o espaço 01.\n" + "\n\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
@@ -697,8 +699,10 @@ public class GuilhermeCode {
 				TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
-			narrativa("\nVocê pode:\n" + "\n[ Pegar ] – uma senha e esperar sua vez de ser atendido.\n"
-					+ "[ Retornar ] – Se movimentando para o espaço 06.", TimeUnit.MILLISECONDS, tempoRapido);
+			narrativa(
+					"\nVocê pode:\n" + "\n[ Pegar ] – uma senha e esperar sua vez de ser atendido.\n"
+							+ "[ Retornar ] – Se movimentando para o espaço 06.\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "PEGAR":
@@ -1265,10 +1269,9 @@ public class GuilhermeCode {
 				"\n\n----------------------------------------------------------------------------------------------------------\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 
-		narrativa(
-				"Questão 10 - Converta oo valor de 1 decimal para binario\n"
-						+ "\n Diferente das outras questões, esse deve possuir uma resposta dada pelo avaliado!\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
+		narrativa("Questão 10 - Converta oo valor de 1 decimal para binario\n"
+				+ "\n Diferente das outras questões, essa deve possuir uma resposta dada diretamento pelo "
+				+ nomePersonagem + ".", TimeUnit.MILLISECONDS, tempoRapido);
 		boolean saida2 = true;
 		do {
 			narrativa("\nResposta: ", TimeUnit.MILLISECONDS, tempoRapido);
@@ -1386,7 +1389,7 @@ public class GuilhermeCode {
 				narrativa(
 						"\n\n----------------------------------------------------------------------------------------------------------\n"
 								+ "\n\n“Não se preocupe, apenas gostaríamos de saber se você concorda com o que vem ocorrendo\n"
-								+ "nessa sociedade?\n" + "\n[ Concordo ] \n" + "[ Discordo ]]n]n",
+								+ "nessa sociedade?\n" + "\n[ Concordo ] \n" + "[ Discordo ]\n\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				String resposta = leitor.next();
 				switch (resposta.toUpperCase()) {
@@ -1458,23 +1461,26 @@ public class GuilhermeCode {
 	}
 
 	static void instrucoes() throws InterruptedException {
-		narrativa("\n\nAs instruções do jogo são bem simples, basta uma leitura ativa e respostas atentas. Para uma \n"
-				+ "leitura ativa, repare nos aspectos dos textos e foque na compreensão do que está sendo \n"
-				+ "transmitido, agora para respostas atentas basta inserir no console as informações requeridas.\n"
-				+ "\nAs informações requeridas, sempre estarão destacadas entre [ colchetes ], com um \n"
-				+ "espaçamento maior de cada lado.\n"
-				+ "\nPor exemplo: se no console for solicitado para digitar algo, e uma ou mais palavras, letras ou \n"
-				+ "números estiverem entre colchetes, digite a palavra, letra ou número escolhido entre colchetes\n"
-				+ "\n[ A ] – Olá\n" + "[ B ] – Tchau\n"
-				+ "\nO correto é digitar [ A ] para representar o Olá ou [ B ] para representar o Tchau. Mas não se \n"
-				+ "preocupe se errar, a questão será repetida para uma nova resposta ser inserida.\n"
-				+ "\nDigite [ OK ] para sair!\n" + "", TimeUnit.MILLISECONDS, tempoRapido);
+		narrativa(
+				"\n\n----------------------------------------------------------------------------------------------------------\n"
+						+ "\n\nAs instruções do jogo são bem simples, basta uma leitura ativa e respostas atentas. Para uma \n"
+						+ "leitura ativa, repare nos aspectos dos textos e foque na compreensão do que está sendo \n"
+						+ "transmitido, agora para respostas atentas basta inserir no console as informações requeridas.\n"
+						+ "\nAs informações requeridas, sempre estarão destacadas entre [ colchetes ], com um \n"
+						+ "espaçamento maior de cada lado.\n"
+						+ "\nPor exemplo: se no console for solicitado para digitar algo, e uma ou mais palavras, letras ou \n"
+						+ "números estiverem entre colchetes, digite a palavra, letra ou número escolhido entre colchetes\n"
+						+ "\n[ A ] – Olá\n" + "[ B ] – Tchau\n"
+						+ "\nO correto é digitar [ A ] para representar o Olá ou [ B ] para representar o Tchau. Mas não se \n"
+						+ "preocupe se errar, a questão será repetida para uma nova resposta ser inserida.\n"
+						+ "\nDigite [ OK ] para sair!\n\n" + "",
+				TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
 			case "OK":
-				narrativa("\nVocê conseguiu compreender, continue assim e bom jogo!", TimeUnit.MILLISECONDS,
+				narrativa("\nVocê conseguiu compreender, continue assim e bom jogo!\n", TimeUnit.MILLISECONDS,
 						tempoLento);
 				sair = false;
 				break;
@@ -1488,17 +1494,20 @@ public class GuilhermeCode {
 	}
 
 	static void creditos() throws InterruptedException {
-		narrativa("\n\nO jogo C-NAC, foi desenvolvido por Erick Barbosa Cavichioni, Guilherme Costa Manrique e \n"
-				+ "Matheus Rocha Galdino da Silva, todos estudantes do Centro Universitário Senac Santo Amaro, \n"
-				+ "cursando Tecnologia de Analise e desenvolvimento de Sistemas, iniciado no primeiro semestre \n"
-				+ "de 2021.\n"
-				+ "\nO jogo C-NAC é um projeto montado com o objetivo avaliativo para a matéria Projeto \n"
-				+ "Integrador I, ministrada pelo professor Dr. Eduardo Takeo Ueda.\n"
-				+ "\nO projeto tem como um dos objetos, testar os conhecimentos dos estudantes referentes a \n"
-				+ "qualquer matéria cursada no semestre, sendo assim, o grupo optou por escolher a matéria \n"
-				+ "Conceitos de Computação, ministrada pelo professor Stelvio Barbosa.\n"
-				+ "\nO grupo tem um agradecimento especial aos professores, por suas orientações que fizerem \n"
-				+ "esse projeto ser possível.\n" + "\nDigite [ OK ] para sair!\n", TimeUnit.MILLISECONDS, tempoRapido);
+		narrativa(
+				"\n\n----------------------------------------------------------------------------------------------------------\n"
+						+ "\n\nO jogo C-NAC, foi desenvolvido por Erick Barbosa Cavichioni, Guilherme Costa Manrique e \n"
+						+ "Matheus Rocha Galdino da Silva, todos estudantes do Centro Universitário Senac Santo Amaro, \n"
+						+ "cursando Tecnologia de Analise e desenvolvimento de Sistemas, iniciado no primeiro semestre \n"
+						+ "de 2021.\n"
+						+ "\nO jogo C-NAC é um projeto montado com o objetivo avaliativo para a matéria Projeto \n"
+						+ "Integrador I, ministrada pelo professor Dr. Eduardo Takeo Ueda.\n"
+						+ "\nO projeto tem como um dos objetos, testar os conhecimentos dos estudantes referentes a \n"
+						+ "qualquer matéria cursada no semestre, sendo assim, o grupo optou por escolher a matéria \n"
+						+ "Conceitos de Computação, ministrada pelo professor Stelvio Barbosa.\n"
+						+ "\nO grupo tem um agradecimento especial aos professores, por suas orientações que fizerem \n"
+						+ "esse projeto ser possível.\n" + "\nDigite [ OK ] para sair!\n\n",
+				TimeUnit.MILLISECONDS, tempoRapido);
 		boolean sair = true;
 		do {
 			String resposta = leitor.next();
@@ -1516,17 +1525,16 @@ public class GuilhermeCode {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		narrativa(
-				"----------------------------------------------------------------------------------------------------------\n\n"
-						+ "    ┌───┐    ┌─┐ ┌┬───┬───┐\r\n" + "    │┌─┐│    ││└┐││┌─┐│┌─┐│\r\n"
-						+ "    ││ └┘    │┌┐└┘││ │││ └┘\r\n" + "    ││ ┌┐┌──┐││└┐││└─┘││ ┌┐\r\n"
-						+ "    │└─┘│└──┘││ │││┌─┐│└─┘│\r\n" + "    └───┘    └┘ └─┴┘ └┴───┘\r\n" + "" + "",
-				TimeUnit.MILLISECONDS, tempoRapido);
-
 		boolean sair = true;
 		do {
 			byte resposta;
 			do {
+				narrativa(
+						"\n\n----------------------------------------------------------------------------------------------------------\n\n"
+								+ "    ┌───┐    ┌─┐ ┌┬───┬───┐\r\n" + "    │┌─┐│    ││└┐││┌─┐│┌─┐│\r\n"
+								+ "    ││ └┘    │┌┐└┘││ │││ └┘\r\n" + "    ││ ┌┐┌──┐││└┐││└─┘││ ┌┐\r\n"
+								+ "    │└─┘│└──┘││ │││┌─┐│└─┘│\r\n" + "    └───┘    └┘ └─┴┘ └┴───┘\r\n" + "" + "",
+						TimeUnit.MILLISECONDS, tempoRapido);
 				narrativa("\n\nMenu de opções:\n\n" + "[ 1 ] - Jogar\n" + "[ 2 ] - Instruções\n" + "[ 3 ] - Créditos\n"
 						+ "[ 4 ] - Sair\n\n" + "Insira a opção desejada: ", TimeUnit.MILLISECONDS, tempoLento);
 				resposta = leitor.nextByte();
