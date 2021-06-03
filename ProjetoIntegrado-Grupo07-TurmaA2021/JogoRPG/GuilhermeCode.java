@@ -1277,7 +1277,7 @@ public class GuilhermeCode {
 				pontuacao = pontuacao + 1;
 				break;
 			default:
-				saida2 = true;
+				saida2 = false;
 				break;
 			}
 		} while (saida2);
@@ -1499,7 +1499,7 @@ public class GuilhermeCode {
 						+ "Integrador I, ministrada pelo professor Dr. Eduardo Takeo Ueda.\n"
 						+ "\nO projeto tem como um dos objetos, testar os conhecimentos dos estudantes referentes a \n"
 						+ "qualquer matéria cursada no semestre, sendo assim, o grupo optou por escolher a matéria \n"
-						+ "Conceitos de Computação, ministrada pelo professor Stelvio Barbosa.\n"
+						+ "Conceitos de Computação, ministrada pelo professor Stelvio Barboza.\n"
 						+ "\nO grupo tem um agradecimento especial aos professores, por suas orientações que fizerem \n"
 						+ "esse projeto ser possível.\n" + "\nDigite [ OK ] para sair!\n\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
