@@ -399,8 +399,8 @@ public class GuilhermeCode {
 				TimeUnit.MILLISECONDS, tempoLento);
 		boolean sair = true;
 		do {
-			narrativa("\n\nLista de documentos acessiveis com o seu acesso:\n" + "\n[EraSustentavel]\n"
-					+ "[Verdade101}\n"
+			narrativa("\n\nLista de documentos acessiveis com o seu acesso:\n" + "\n[ EraSustentavel ]\n"
+					+ "[ Verdade101 ]\n"
 					+ "\nCaso queira ler algum documento, basta escrever o nome dele! Caso contrario, digite [ sair ].\n\n"
 					+ "Solicitação: ", TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
