@@ -8,11 +8,23 @@ import java.util.concurrent.TimeUnit;
 
 public class GuilhermeCode {
 
-	static Scanner leitor = new Scanner(System.in);
+	static Scanner leitor = new Scanner(System.in); // input de informacoes, como uma variavel global.
 
-	static int tempoRapido = 0, tempoLento = 0;
+	static int tempoRapido = 10, tempoLento = 30; // determina o tempo dos textos informados, caso queira jogar sem o
+													// delay da mensagem, basta colocar zero em tempoRapido, e
+													// tempoLento.
+
+	// a distribuicao do jogo esta em sua totalidade dentro do metodo jogoCnac,
+	// porem utilizando todos os outros metodos existentes para realizar seu
+	// funcionamento.
+	// Poderiamos ter criado um metodo para inserir os dialogos e conseuqentemente
+	// informar as opcoes desejadas, entretanto optamos por criar varios metodos com
+	// os dialogos, o que facilitou a visualizacao do codigo, assim como, pegar erros.
+	// dentro do main, esta constando apenas o meu e algumas informacoes relevantes
+	// caso de um bug no jogo, devido a leitura dos caracteres ascii.
 
 	static void narrativa(String mensagem, TimeUnit unit, long tempoMensagem) throws InterruptedException {
+		// insercao de um metodo de exibicao dos dialogos com delay
 		for (char caractere : mensagem.toCharArray()) {
 			System.out.print(caractere);
 			unit.sleep(tempoMensagem);
@@ -20,8 +32,32 @@ public class GuilhermeCode {
 	}
 
 	static String nomePersonagem() throws InterruptedException {
-		narrativa("\nInsira o nome do seu personagem, por gentileza: ", TimeUnit.MILLISECONDS, tempoLento);
-		String jogador = leitor.next();
+		String jogador;
+		boolean sair = true;
+		do {
+			narrativa("\nInsira o nome do seu personagem, por gentileza: ", TimeUnit.MILLISECONDS, tempoLento);
+			jogador = leitor.next();
+
+			boolean sairConfirmacao = true;
+			do {
+				narrativa("\n\nConfirmando o nome " + jogador + "?\n" + "\n[ Ok ] - Para confirmar\n"
+						+ "[ Nao ] - Para escolher um novo nome\n\n", TimeUnit.MILLISECONDS, tempoLento);
+				String resposta = leitor.next();
+				switch (resposta.toUpperCase()) {
+				case "OK":
+					sairConfirmacao = false;
+					sair = false;
+					break;
+				case "NAO":
+					sairConfirmacao = false;
+					sair = true;
+					break;
+				default:
+					narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n", TimeUnit.MILLISECONDS,
+							tempoRapido);
+				}
+			} while (sairConfirmacao);
+		} while (sair);
 		return jogador;
 	}
 
@@ -84,7 +120,7 @@ public class GuilhermeCode {
 				sair = false;
 				break;
 			default:
-				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n", TimeUnit.MILLISECONDS,
 						tempoRapido);
 				sair = true;
 				break;
@@ -117,7 +153,7 @@ public class GuilhermeCode {
 
 		boolean sair = true;
 		do {
-			narrativa("\n\n" + nomePersonagem + ", gostaria de ler o texto mencionado?\n" + "[ Sim ] - por gentileza!\n"
+			narrativa("\n" + nomePersonagem + ", gostaria de ler o texto mencionado?\n" + "\n[ Sim ] - por gentileza!\n"
 					+ "[ Nao ] - muito obrigado!\n\n" + "", TimeUnit.MILLISECONDS, tempoLento);
 			String resposta = leitor.next();
 			switch (resposta.toUpperCase()) {
@@ -180,6 +216,21 @@ public class GuilhermeCode {
 								+ "isso PODE TER GRANDES CONSEQUÊNCIAS, então tome cuidado e não repita os erros do passado.\n"
 								+ "",
 						TimeUnit.MILLISECONDS, tempoRapido);
+				boolean sairTexto = true;
+				do {
+					narrativa(
+							"\n[ OK ] Lembrando que se quiser ler novamente o texto, basta ir a biblioteca e ler o documento: EraSustentavel\n\n",
+							TimeUnit.MILLISECONDS, tempoRapido);
+					String respostaTexto = leitor.next();
+					switch (respostaTexto.toUpperCase()) {
+					case "OK":
+						sairTexto = false;
+						break;
+					default:
+						narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n",
+								TimeUnit.MILLISECONDS, tempoRapido);
+					}
+				} while (sairTexto);
 				sair = false;
 				break;
 			case "NAO":
@@ -188,7 +239,7 @@ public class GuilhermeCode {
 				sair = false;
 				break;
 			default:
-				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n", TimeUnit.MILLISECONDS,
 						tempoRapido);
 				sair = true;
 				break;
@@ -210,6 +261,21 @@ public class GuilhermeCode {
 						+ "e que nesse caso, você só poderia frequentar aquela universidade sendo um cidadão.\n"
 						+ "\nSaindo de seu devaneio, você adentra o espaço da universidade.\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
+		boolean sair = true;
+		do {
+			narrativa("\n[ Ok ] – Para continuar\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+			String resposta = leitor.next();
+			switch (resposta.toUpperCase()) {
+			case "OK":
+				sair = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+				sair = true;
+				break;
+			}
+		} while (sair);
 	}
 
 	static void earlyGameTotemEspaco01(String nomePersonagem) throws InterruptedException {
@@ -226,8 +292,7 @@ public class GuilhermeCode {
 		boolean sair = true;
 		do {
 			narrativa(
-					"\n\n----------------------------------------------------------------------------------------------------------\n"
-							+ "\n\nDigite:\n" + "\n[ Mapa ] – para ver um mapa de orientação da unidade.\n"
+					"\n\nDigite:\n" + "\n[ Mapa ] – para ver um mapa de orientação da unidade.\n"
 							+ "[ Sair ] – para sair do totem e se mover pela unidade.\n\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
 			String resposta = leitor.next();
@@ -249,16 +314,34 @@ public class GuilhermeCode {
 								+ "Espaço 09: salas de exame de 1 a 5.\n" + "Espaço 10: salas de exame de 6 a 10. \n"
 								+ "Atualmente você possui acesso somente a esses espaços.\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
+
+				boolean sairTexto = true;
+				do {
+					narrativa("\n[ OK ] Para retornao ao menu do totem\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+					String respostaTexto = leitor.next();
+					switch (respostaTexto.toUpperCase()) {
+					case "OK":
+						sairTexto = false;
+						break;
+					default:
+						narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n",
+								TimeUnit.MILLISECONDS, tempoRapido);
+					}
+				} while (sairTexto);
+
+				narrativa(
+						"\n\n----------------------------------------------------------------------------------------------------------\n",
+						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = true;
 				break;
 			case "SAIR":
-				narrativa("\nQualquer dúvida, retorne aqui!\n\n"
+				narrativa("\n\nQualquer dúvida, retorne aqui!\n\n"
 						+ "----------------------------------------------------------------------------------------------------------\n\n",
 						TimeUnit.MILLISECONDS, tempoRapido);
 				sair = false;
 				break;
 			default:
-				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n\n", TimeUnit.MILLISECONDS,
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n", TimeUnit.MILLISECONDS,
 						tempoRapido);
 				sair = true;
 				break;
@@ -1055,18 +1138,18 @@ public class GuilhermeCode {
 
 		do {
 
-			narrativa(pergunta, TimeUnit.MILLISECONDS, tempoRapido);
+			narrativa(
+					"----------------------------------------------------------------------------------------------------------\n\n",
+					TimeUnit.MILLISECONDS, tempoRapido);
+
+			narrativa(pergunta, TimeUnit.MILLISECONDS, tempoLento);
 			System.out.println("\n\n");
 
 			for (int i = 0; i < listaAlternativas.size(); i++) {
 
 				listaLetrasAlternativas.add(Character.toString((char) (i + 65))); // interando a lista de alternativas
-				System.out.println("[ " + listaLetrasAlternativas.get(i) + " ] " + listaAlternativas.get(i)); // apresentando
-																												// elas
-																												// junto
-																												// com
-																												// as
-																												// questões
+				narrativa("[ " + listaLetrasAlternativas.get(i) + " ] " + listaAlternativas.get(i),
+						TimeUnit.MILLISECONDS, tempoLento); // apresentando elas junto com as questões
 			}
 
 			narrativa("\n\n", TimeUnit.MILLISECONDS, tempoRapido);
@@ -1076,8 +1159,8 @@ public class GuilhermeCode {
 			posicaoAlternativa = (listaAlternativas.indexOf(alternativaCorreta));
 			letraAlternativa = ((char) (posicaoAlternativa + 65));
 
-		} while (naoPertence(resposta, listaLetrasAlternativas)); // enquanto ele não pertencer a lista de
-																	// alternativas ele não vai sair do looping
+		} while (naoPertence(resposta, listaLetrasAlternativas)); // enquanto ele não pertencer a lista de alternativas
+																	// ele não vai sair do looping
 
 		if (resposta.equals(String.valueOf(letraAlternativa))) {
 			narrativa("\nResposta gravada\n", TimeUnit.MILLISECONDS, tempoLento);
@@ -1111,6 +1194,7 @@ public class GuilhermeCode {
 		earlyGame03(nomePersonagem);
 		earlyGame04();
 		boolean saida = true;
+		// sistema de movimentacao do personagem entre os diferentes escos do jogo.
 		do {
 			if (espaco == 1) {
 				espaco = earlyGameEspaco01(nomePersonagem, espaco);
@@ -1159,50 +1243,44 @@ public class GuilhermeCode {
 						+ "\nBOA SORTE, E SUCESSO! CASO CONTRÁRIO, SERÁ TARDE DEMAIS.\n" + "\n...\n",
 				TimeUnit.MILLISECONDS, tempoRapido);
 
+		boolean sairTexto = true;
+		do {
+			narrativa("\n[ OK ] Para iniciar a prova\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+			String respostaTexto = leitor.next();
+			switch (respostaTexto.toUpperCase()) {
+			case "OK":
+				sairTexto = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+			}
+		} while (sairTexto);
+
 		float pontuacao = 0;
 		String pergunta;
 		ArrayList<String> listaAlternativas = new ArrayList<String>();
-
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
 
 		pergunta = "Questão 01 - Qual valor hexadecimal que convertido para octagonal fica igual a 247?";
 		listaAlternativas.addAll(Arrays.asList("A7", "A4", "A3", "B1", "BF"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "A7");
 		listaAlternativas.clear();
 
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
-
 		pergunta = "Questão 02 - Qual valor decimal que convertido para binario fica igual a 0100?";
 		listaAlternativas.addAll(Arrays.asList("1", "2", "3", "4", "5"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "4");
 		listaAlternativas.clear();
-
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
 
 		pergunta = "Questão 03 - Qual valor decimal que convertido para binario fica igual a 1000?";
 		listaAlternativas.addAll(Arrays.asList("8", "1", "3", "4", "5"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "8");
 		listaAlternativas.clear();
 
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
-
 		pergunta = "Questão 04 - Em uma expressão lógica, quais sinais representam uma porta OR, AND e NOT, respectivamente?";
 		listaAlternativas.addAll(Arrays.asList("Mais, ponto e barra", "Ponto, mais e barra", "Barra, ponto e mais",
 				"Ponto, barra e mais", "Nenhum desses sinais"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Mais, ponto e barra");
 		listaAlternativas.clear();
-
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
 
 		pergunta = "Questão 05 - No momento de extrair a tabela verdade de uma expressão lógica, que contem parênteses, AND e OR,\n"
 				+ "por exemplo: A . B . C + A . (C + A + D), qual a ordem mais aprorpiada de resolução da expressão respectivamente?";
@@ -1211,10 +1289,6 @@ public class GuilhermeCode {
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Parênteses, AND e OR");
 		listaAlternativas.clear();
 
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
-
 		pergunta = "Questão 06 - Qual o resultado de uma tabela verdade do tipo XOR?\n\n" + "   | A | B | S |\n"
 				+ "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n" + "   | 1 | 1 | ? |";
 		listaAlternativas.addAll(Arrays.asList("S = 0, 1, 1, 0", "S = 1, 0, 0, 1", "S = 1, 1, 1, 1", "S = 0, 0, 0, 0",
@@ -1222,20 +1296,12 @@ public class GuilhermeCode {
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "S = 0, 1, 1, 0");
 		listaAlternativas.clear();
 
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
-
 		pergunta = "Questão 07 - Qual o resultado de uma tabela verdade do tipo XNOT?\n\n" + "   | A | B | S |\n"
 				+ "   | 0 | 0 | ? |\n" + "   | 0 | 1 | ? |\n" + "   | 1 | 0 | ? |\n" + "   | 1 | 1 | ? |";
 		listaAlternativas.addAll(Arrays.asList("S = 0, 1, 1, 0", "S = 1, 0, 0, 1", "S = 1, 1, 1, 1", "S = 0, 0, 0, 0",
 				"S = 1, 1, 0, 0"));
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "S = 1, 0, 0, 1");
 		listaAlternativas.clear();
-
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
 
 		pergunta = "Questão 08 - Segundo o mapa de karnaugh apresentado, quantas unidades, pares, quadras ou oitavas, esse mapa\n\n"
 				+ "apresenta para ser o mais otimizado possivel?\n" + " \n C e D / A e B\n"
@@ -1247,10 +1313,6 @@ public class GuilhermeCode {
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três pares e uma quadra");
 		listaAlternativas.clear();
 
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
-
 		pergunta = "Questão 09 - Segundo o mapa de karnaugh apresentado, quantas quadras ele possui para ser o mais otimizado possivel?\n\n"
 				+ " \n C e D / A e B\n" + "        | 00 | 01 | 11 | 10 |\n" + "     00 |  1 |  0 |  0 |  1 |\n"
 				+ "     01 |  0 |  1 |  1 |  0 |\n" + "     11 |  0 |  1 |  1 |  1 |\n"
@@ -1260,12 +1322,8 @@ public class GuilhermeCode {
 		pontuacao = pontuacao + questaoMultiplaEscolha(pergunta, listaAlternativas, "Três quadras");
 		listaAlternativas.clear();
 
-		narrativa(
-				"\n\n----------------------------------------------------------------------------------------------------------\n",
-				TimeUnit.MILLISECONDS, tempoRapido);
-
 		narrativa("Questão 10 - Converta oo valor de 1 decimal para binario\n"
-				+ "\n Diferente das outras questões, essa deve possuir uma resposta dada diretamento pelo "
+				+ "\nDiferente das outras questões, essa deve possuir uma resposta dada diretamento pelo "
 				+ nomePersonagem + ".", TimeUnit.MILLISECONDS, tempoRapido);
 		boolean saida2 = true;
 		do {
@@ -1447,11 +1505,25 @@ public class GuilhermeCode {
 				}
 			} while (sair);
 
-			narrativa(
-					"\n\n----------------------------------------------------------------------------------------------------------\n"
-							+ "\n\nOBRIGADO POR JOGAR NOSSO JOGO!",
-					TimeUnit.MILLISECONDS, tempoLento);
 		}
+
+		narrativa(
+				"\n\n----------------------------------------------------------------------------------------------------------\n"
+						+ "\n\nOBRIGADO POR JOGAR NOSSO JOGO!\n\n",
+				TimeUnit.MILLISECONDS, tempoLento);
+		boolean retornarMenu = true;
+		do {
+			narrativa("\n[ OK ] Para retornao ao menu do jogo\n\n", TimeUnit.MILLISECONDS, tempoRapido);
+			String respostaTexto = leitor.next();
+			switch (respostaTexto.toUpperCase()) {
+			case "OK":
+				retornarMenu = false;
+				break;
+			default:
+				narrativa("\nNão entendemos sua resposta, por gentileza, tente novamente\n", TimeUnit.MILLISECONDS,
+						tempoRapido);
+			}
+		} while (retornarMenu);
 
 	}
 
@@ -1522,35 +1594,40 @@ public class GuilhermeCode {
 
 		boolean sair = true;
 		do {
-			byte resposta;
-			do {
-				narrativa(
-						"\n\n----------------------------------------------------------------------------------------------------------\n\n"
-								+ "    ┌───┐    ┌─┐ ┌┬───┬───┐\r\n" + "    │┌─┐│    ││└┐││┌─┐│┌─┐│\r\n"
-								+ "    ││ └┘    │┌┐└┘││ │││ └┘\r\n" + "    ││ ┌┐┌──┐││└┐││└─┘││ ┌┐\r\n"
-								+ "    │└─┘│└──┘││ │││┌─┐│└─┘│\r\n" + "    └───┘    └┘ └─┴┘ └┴───┘\r\n" + "" + "",
-						TimeUnit.MILLISECONDS, tempoRapido);
-				narrativa("\n\nMenu de opções:\n\n" + "[ 1 ] - Jogar\n" + "[ 2 ] - Instruções\n" + "[ 3 ] - Créditos\n"
-						+ "[ 4 ] - Sair\n\n" + "Insira a opção desejada: ", TimeUnit.MILLISECONDS, tempoLento);
-				resposta = leitor.nextByte();
-			} while (resposta < 1 || resposta > 4);
+
+			narrativa(
+					"\n\n----------------------------------------------------------------------------------------------------------\n\n"
+							+ "    ┌───┐    ┌─┐ ┌┬───┬───┐\r\n" + "    │┌─┐│    ││└┐││┌─┐│┌─┐│\r\n"
+							+ "    ││ └┘    │┌┐└┘││ │││ └┘\r\n" + "    ││ ┌┐┌──┐││└┐││└─┘││ ┌┐\r\n"
+							+ "    │└─┘│└──┘││ │││┌─┐│└─┘│\r\n" + "    └───┘    └┘ └─┴┘ └┴───┘\r\n" + "" + "",
+					TimeUnit.MILLISECONDS, tempoRapido); // Alguns sistemas podem não reconhecer a leitura dos
+															// caracteres desse dialogo, caso de um bug, retirar esse
+															// dialogo, que mostra apenas o titulo do jogo com
+															// caracteres ascii
+
+			narrativa("\n\nMenu de opções:\n\n" + "[ 1 ] - Jogar\n" + "[ 2 ] - Instruções\n" + "[ 3 ] - Créditos\n"
+					+ "[ 4 ] - Sair\n\n" + "Insira a opção desejada: ", TimeUnit.MILLISECONDS, tempoLento);
+			String resposta = leitor.next();
+
 			switch (resposta) {
-			case 1:
+			case "1":
 				jogoCnac();
 				sair = true;
 				break;
-			case 2:
+			case "2":
 				instrucoes();
 				sair = true;
 				break;
-			case 3:
+			case "3":
 				creditos();
 				sair = true;
 				break;
-			case 4:
+			case "4":
 				narrativa("\n\nAté breve jogador!", TimeUnit.MILLISECONDS, tempoLento);
 				sair = false;
 				break;
+			default:
+				narrativa("\nResposta invalida, por gentileza, tente novamente\n", TimeUnit.MILLISECONDS, tempoRapido);
 			}
 		} while (sair);
 	}
