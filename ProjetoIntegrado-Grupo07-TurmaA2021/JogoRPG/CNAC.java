@@ -10,7 +10,7 @@ public class CNAC {
 
 	static Scanner leitor = new Scanner(System.in); // input de informacoes, como uma variavel global.
 
-	static int tempoRapido = 0, tempoLento = 0; // determina o tempo dos textos informados, caso queira jogar sem o
+	static int tempoRapido = 10, tempoLento = 30; // determina o tempo dos textos informados, caso queira jogar sem o
 													// delay da mensagem, basta colocar zero em tempoRapido, e
 													// tempoLento.
 
