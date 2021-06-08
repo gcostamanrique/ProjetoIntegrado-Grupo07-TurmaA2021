@@ -10,7 +10,7 @@ public class CNAC {
 
 	static Scanner leitor = new Scanner(System.in); // input de informacoes, como uma variavel global.
 
-	static int tempoRapido = 10, tempoLento = 30; // determina o tempo dos textos informados, caso queira jogar sem o
+	static int tempoRapido = 0, tempoLento = 0; // determina o tempo dos textos informados, caso queira jogar sem o
 													// delay da mensagem, basta colocar zero em tempoRapido, e
 													// tempoLento.
 
@@ -355,7 +355,7 @@ public class CNAC {
 						+ "\n\nAdentrado a universidade, você observa as coisas da seguinte perspectiva:\n"
 						+ "\nVocê está em um espaço semi coberto, com o chão feito de paralelepípedo e concreto.\n"
 						+ "\nA sua direita, tem uma estação de segurança, onde você repara que os seguranças estão \n"
-						+ "observando todo o movimento que acontece no local. A atras da estação de segurança, ainda a \n"
+						+ "observando todo o movimento que acontece no local. Atras da estação de segurança, ainda a \n"
 						+ "sua direita, um estacionamento aberto cheio de carros.\n"
 						+ "\nA sua esquerda, você observa uma carca de arbustos verdes e baixos, e vê parcialmente a um \n"
 						+ "lado do prédio da biblioteca.\n" + "\nA sua frente, você observa um totem de informações.\n",
@@ -874,14 +874,14 @@ public class CNAC {
 			case "1":
 				if (salaExame == 1) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 9;
 					sair = true;
@@ -890,14 +890,14 @@ public class CNAC {
 			case "2":
 				if (salaExame == 2) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 9;
 					sair = true;
@@ -906,14 +906,14 @@ public class CNAC {
 			case "3":
 				if (salaExame == 3) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 9;
 					sair = true;
@@ -922,14 +922,14 @@ public class CNAC {
 			case "4":
 				if (salaExame == 4) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 9;
 					sair = true;
@@ -938,14 +938,14 @@ public class CNAC {
 			case "5":
 				if (salaExame == 5) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 9;
 					sair = true;
@@ -988,14 +988,14 @@ public class CNAC {
 			case "6":
 				if (salaExame == 6) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 10;
 					sair = true;
@@ -1004,14 +1004,14 @@ public class CNAC {
 			case "7":
 				if (salaExame == 7) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 10;
 					sair = true;
@@ -1020,14 +1020,14 @@ public class CNAC {
 			case "8":
 				if (salaExame == 8) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 10;
 					sair = true;
@@ -1036,14 +1036,14 @@ public class CNAC {
 			case "9":
 				if (salaExame == 9) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 10;
 					sair = true;
@@ -1052,14 +1052,14 @@ public class CNAC {
 			case "10":
 				if (salaExame == 10) {
 					narrativa(
-							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.",
+							"\n\nApós inserir seu cartão de habitante no leitor da porta, ela se destranca e você entra!.\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 11;
 					sair = false;
 				} else {
 					narrativa(
 							"\n\nApós inserir seu cartão de habitante no leitor da porta, a seguinte mensagem aparece:\n"
-									+ "Sala trancada, procure pela sala correta!",
+									+ "Sala trancada, procure pela sala correta!\n",
 							TimeUnit.MILLISECONDS, tempoLento);
 					espaco = 10;
 					sair = true;
@@ -1096,10 +1096,10 @@ public class CNAC {
 						+ "Ao chegar no atendente, ele se identifica como Guilherme e solicita seu cartão de habitante ou \n"
 						+ "cidadão.\n" + "\nApós entregar o cartão de habitante, ele o leu no sistema e responde:\n"
 						+ "\n“Vejo que o/a senhor(a) " + nomePersonagem + ", veio realizar o exame de cidadania.”\n"
-						+ "Você concordando, fala um pouco mais:\n"
+						+ "Você concordando, e fala um pouco mais:\n"
 						+ "\n“Isso mesmo, fui informado de vir a secretaria para confirmar minha presença e solicitar uma \n"
-						+ "sala para o exame.”\n" + "Guilherme responde:\n" + "\n“Sem problemas!”\n"
-						+ "Após alguns poucos comandos que ele inseriu no sistema ele responde.\n" + "\n“O/a senhor(a) "
+						+ "sala para o exame.”\n" + "\nGuilherme responde:\n" + "“Sem problemas!”\n"
+						+ "\nApós alguns poucos comandos que ele inseriu no sistema ele responde.\n" + "\n“O/a senhor(a) "
 						+ nomePersonagem + ", já está com sua presença confirmada! Agora basta ir à sala \n" + salaExame
 						+ " e realizar seu exame! Desejamos boa sorte e sucesso!!!”\n"
 						+ "Após receber o numero da sala, você agradece, se levanta e sai da secretaria.\n",
@@ -1148,7 +1148,7 @@ public class CNAC {
 			for (int i = 0; i < listaAlternativas.size(); i++) {
 
 				listaLetrasAlternativas.add(Character.toString((char) (i + 65))); // interando a lista de alternativas
-				narrativa("[ " + listaLetrasAlternativas.get(i) + " ] " + listaAlternativas.get(i),
+				narrativa("[ " + listaLetrasAlternativas.get(i) + " ] " + listaAlternativas.get(i) + "\n",
 						TimeUnit.MILLISECONDS, tempoLento); // apresentando elas junto com as questões
 			}
 
@@ -1343,7 +1343,7 @@ public class CNAC {
 		if (pontuacao < 7) {
 			narrativa(
 					"\n\n----------------------------------------------------------------------------------------------------------\n"
-							+ "\n\nApós terminar a conclusão do teste, você se levanta e percebe que a sala esta vazia, o \n"
+							+ "\n\nApós terminar de reponder o teste, você se levanta e percebe que a sala esta vazia, o \n"
 							+ "orientador não está onde deveria estar, o que é estranho. Após alguns segundos você começa \n"
 							+ "a ficar desorientado e senta novamente para se recuperar, porem tudo está ficando escuro, \n"
 							+ "você sente dificuldade de respirar e por fim não vê mais nada.\n"
@@ -1377,7 +1377,7 @@ public class CNAC {
 			narrativa(
 					"\n\n----------------------------------------------------------------------------------------------------------\n"
 							+ "\n\nParabéns por concluir a prova!\n" + "\nSua pontuação é classificada como D!!!\n"
-							+ "\nVocê oficialmente agora é um cidadão de E-NAC, parabéns por conquistar seu título com muito \n"
+							+ "\nVocê oficialmente agora é um cidadão de C-NAC, parabéns por conquistar seu título com muito \n"
 							+ "esforço, inteligência e sabedoria! \n"
 							+ "\nA partir do momento em que receber seu cartão de cidadão com a pontuação D, você também \n"
 							+ "irá receber novos manuais e documentos relacionando as empresas em que você pode \n"
@@ -1386,7 +1386,7 @@ public class CNAC {
 							+ "\nLembrando que sua pontuação atual não é fixa, você sempre tem a possibilidade de alcançar \n"
 							+ "maiores níveis!!! Basta se esforçar mais ainda no desempenho de suas atividades e realizar um \n"
 							+ "novo teste quando disponível.\n"
-							+ "Após ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
+							+ "\nApós ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
 							+ "feito, e tranquilamente retorna ao seu lar, com a sensação de dever cumprido e muito feliz por \n"
 							+ "conseguir essa conquista! E já até se imagina frequentando a unidade C-NAC-01/3.\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
@@ -1394,7 +1394,7 @@ public class CNAC {
 			narrativa(
 					"\n\n----------------------------------------------------------------------------------------------------------\n"
 							+ "\n\nParabéns por concluir a prova!\n" + "\nSua pontuação é classificada como C!!!\n"
-							+ "\nVocê oficialmente agora é um cidadão de E-NAC, parabéns por conquistar seu título com muito \n"
+							+ "\nVocê oficialmente agora é um cidadão de C-NAC, parabéns por conquistar seu título com muito \n"
 							+ "esforço, inteligência e sabedoria! \n"
 							+ "\nA partir do momento em que receber seu cartão de cidadão com a pontuação C, você também \n"
 							+ "irá receber novos manuais e documentos relacionando as empresas em que você pode \n"
@@ -1403,7 +1403,7 @@ public class CNAC {
 							+ "\nLembrando que sua pontuação atual não é fixa, você sempre tem a possibilidade de alcançar \n"
 							+ "maiores níveis!!! Basta se esforçar mais ainda no desempenho de suas atividades e realizar um \n"
 							+ "novo teste quando disponível.\n"
-							+ "Após ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
+							+ "\nApós ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
 							+ "feito, e tranquilamente retorna ao seu lar, com a sensação de dever cumprido e muito feliz por \n"
 							+ "conseguir essa conquista! E já até se imagina frequentando a unidade C-NAC-01/3.\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
@@ -1411,7 +1411,7 @@ public class CNAC {
 			narrativa(
 					"\n\n----------------------------------------------------------------------------------------------------------\n"
 							+ "\n\nParabéns por concluir a prova!\n" + "\nSua pontuação é classificada como B!!!\n"
-							+ "\nVocê oficialmente agora é um cidadão de E-NAC, parabéns por conquistar seu título com muito \n"
+							+ "\nVocê oficialmente agora é um cidadão de C-NAC, parabéns por conquistar seu título com muito \n"
 							+ "esforço, inteligência e sabedoria! \n"
 							+ "\nA partir do momento em que receber seu cartão de cidadão com a pontuação B, você também \n"
 							+ "irá receber novos manuais e documentos relacionando as empresas em que você pode \n"
@@ -1420,7 +1420,7 @@ public class CNAC {
 							+ "\nLembrando que sua pontuação atual não é fixa, você sempre tem a possibilidade de alcançar \n"
 							+ "maiores níveis!!! Basta se esforçar mais ainda no desempenho de suas atividades e realizar um \n"
 							+ "novo teste quando disponível.\n"
-							+ "Após ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
+							+ "\nApós ler essas informações, você se despede do orientador da prova, que o parabeniza por seu \n"
 							+ "feito, e tranquilamente retorna ao seu lar, com a sensação de dever cumprido e muito feliz por \n"
 							+ "conseguir essa conquista! E já até se imagina frequentando a unidade C-NAC-01/3.\n",
 					TimeUnit.MILLISECONDS, tempoRapido);
@@ -1428,7 +1428,7 @@ public class CNAC {
 			narrativa(
 					"\n\n----------------------------------------------------------------------------------------------------------\n"
 							+ "\n\nParabéns por concluir a prova!\n" + "\nSua pontuação é classificada como A!!!\n"
-							+ "\nVocê oficialmente agora é um cidadão de E-NAC, parabéns por conquistar seu título com muito \n"
+							+ "\nVocê oficialmente agora é um cidadão de C-NAC, parabéns por conquistar seu título com muito \n"
 							+ "esforço, inteligência, sabedoria e atenção! \n"
 							+ "\nApós ler essa mensagem, o instrutor da prova se dirige a você e fala:\n"
 							+ "“Você só conseguiria essa pontuação obtendo acesso ao documento secreto na biblioteca.”\n"
@@ -1485,7 +1485,7 @@ public class CNAC {
 									+ "decepcionado com o que a sociedade vem fazendo com esses indivíduos. Confinamento e \n"
 									+ "subserviência não é algo agradável e nenhum ser existente, e por isso você pensa em como \n"
 									+ "isso pode ocorrer, como as coisas chegaram a esse ponto. O medo de acontecer o que \n"
-									+ "aconteceu anteriormente, ou seja, o colapso da sociedade é tão grande que forcou os \n"
+									+ "aconteceu anteriormente, ou seja, o colapso da sociedade é tão grande que forçou os \n"
 									+ "humanos a tratarem a própria espécie dessa forma? Ou pior ainda, e se for apenas mais um \n"
 									+ "ato de guerra, disfarçado apenas de paz?\n"
 									+ "\nCom essas duvidas em sua mente, lhe ocorreu mais um pensamento, que era sobre os \n"
